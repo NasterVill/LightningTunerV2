@@ -5,8 +5,8 @@ import MeasuringArc from './MeasuringArc';
 import Needle from './Needle';
 import { styles } from './styles';
 
-const MARGIN_BOTTOM = 20;
-const BIG_CIRCLE_RADIUS = 8;
+const MARGIN_BOTTOM = 16;
+const BIG_CIRCLE_RADIUS = MARGIN_BOTTOM / 2;
 const SMALLER_CIRCLE_RADIUS = BIG_CIRCLE_RADIUS * 0.6;
 
 export default class MeasuringScale extends Component {

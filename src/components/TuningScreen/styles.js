@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
 
     },
     textStyle: {
-        fontSize: 20,
+        fontSize: 28,
         textAlign: 'center',
         textAlignVertical: 'center',
         paddingBottom: 15,

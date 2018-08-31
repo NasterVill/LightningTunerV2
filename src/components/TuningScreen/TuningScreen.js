@@ -8,6 +8,8 @@ import Tuning from '../Tuning/Tuning';
 import MeasuringScale from '../MeasuringScale';
 import { styles } from './styles';
 
+const FREQ_PRECISION = 100;
+
 export default class TuningScreen extends Component {
 	constructor(props) {
 		super(props);
@@ -29,9 +31,10 @@ export default class TuningScreen extends Component {
     }
 
 	render() {
-		const { frequency } = this.state;
+        let { textStyle, tuningStyle, tunerViewStyle } = styles;
 
-		let { textStyle, tuningStyle, tunerViewStyle } = styles;
+		let { frequency } = this.state;
+        frequency = Math.round(frequency * FREQ_PRECISION) / FREQ_PRECISION;
 
 		return (
 			<View style={{flex: 1, alignSelf: 'stretch'}}>
@@ -41,7 +44,7 @@ export default class TuningScreen extends Component {
                     divisionAmount={20}
 					toPos={this.computePos()}
 				/>
-				<Text style={textStyle}>{frequency}, Hz</Text>
+				<Text style={textStyle}>{frequency} Hz</Text>
 			</View>
 		);
 	}
