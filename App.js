@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
-import TuningScreen from './src/components/TuningScreen/TuningScreen'
+import Tuner from './src/components/TuningScreen/Tuner'
 
 export default class App extends Component {
     constructor(props) {
@@ -10,7 +10,7 @@ export default class App extends Component {
     render() {
         return (
           <View style={styles.container}>
-              <TuningScreen />
+              <Tuner />
           </View>
         );
     }

@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
 
     },
     textStyle: {
-        fontSize: 28,
+        fontSize: 26,
         textAlign: 'center',
         textAlignVertical: 'center',
         paddingBottom: 15,
@@ -18,8 +18,7 @@ export const styles = StyleSheet.create({
         //backgroundColor: 'green',
     },
     tunerViewStyle: {
-        flex: 3,
-        alignSelf: 'stretch',
+        flex: 5,
         //backgroundColor: 'blue',
     }
 });

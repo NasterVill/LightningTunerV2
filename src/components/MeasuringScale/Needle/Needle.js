@@ -3,7 +3,7 @@ import { Animated } from 'react-native';
 import {Line} from 'react-native-svg';
 
 const MAX_STEPS = 100;
-const ANIMATION_DURATION = 700;
+const ANIMATION_DURATION = 600;
 const DEFAULT_POS = 50;
 
 let AnimatedLine = Animated.createAnimatedComponent(Line);
@@ -12,15 +12,16 @@ export default class Needle extends Component {
     constructor(props) {
         super(props);
 
-        let { cx, cy, length, startAngle } = this.props;
-        let step = ((180 - 2 * startAngle) / MAX_STEPS);
-
         this.state = {
             currPos: new Animated.Value(DEFAULT_POS),
         };
 
         this.state.currPos.addListener((toPos) => {
+            let { cx, cy, length, startAngle } = this.props;
+
+            let step = ((180 - 2 * startAngle) / MAX_STEPS);
             let angle = step * toPos.value + startAngle;
+
             let x1 = cx - length * Math.cos(angle * Math.PI / 180);
             let y1 = cy - length * Math.sin(angle * Math.PI / 180);
 
