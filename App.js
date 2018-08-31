@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
-import Tuner from './src/components/TuningScreen/Tuner'
+import Tuner from './src/components/Tuner/Tuner'
 
 export default class App extends Component {
     constructor(props) {

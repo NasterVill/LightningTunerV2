@@ -10,7 +10,7 @@ const generateStyles = (width, height, angle) => {
     if (width > height) {
         leftOffset = width / 4.5;
         rightOffset = width / 4.5;
-        topOffsetCentral = 20;
+        topOffsetCentral = 10;
         topOffsetSides = 105;
     }
 
