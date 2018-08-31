@@ -1,0 +1,31 @@
+{
+  "name": "LightningTuner",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "jest"
+  },
+  "dependencies": {
+    "babel-preset-react-native": "^2.1.0",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-native-svg": "^6.5.2",
+    "react-native-svg-uri": "^1.2.3"
+  },
+  "devDependencies": {
+    "babel-jest": "23.4.2",
+    "jest": "23.4.2",
+    "lodash": "^4.17.10",
+    "react-native-permissions": "^1.1.1",
+    "react-native-audio-processing": "git+https://github.com/NasterVill/RNAudioProcessingModule.git",
+    "react-redux": "^5.0.7",
+    "react-test-renderer": "16.4.1",
+    "redux": "^4.0.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
