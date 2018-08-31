@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
         //backgroundColor: 'red',
     },
     tuningStyle: {
-        flex: 2,
+        flex: 1,
         //backgroundColor: 'green',
     },
     tunerViewStyle: {

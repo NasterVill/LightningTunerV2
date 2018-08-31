@@ -9,6 +9,7 @@ export default class Tuning extends Component {
 	render() {
 		return (
 			<View style={this.props.style}>
+
 			</View>
 		);
 	}

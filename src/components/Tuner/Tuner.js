@@ -14,7 +14,7 @@ export default class Tuner extends Component {
     constructor(props) {
         super(props);
 
-        this.audioProcesor = new AudioDummy(_.throttle((frequency) => this.setState({ frequency }), 2000));
+        this.audioProcesor = new AudioDummy(_.throttle((frequency) => this.setState({ frequency }), 200));
 
         Permissions.request('microphone').then(response => {
             if (response === 'authorized') {
@@ -37,7 +37,7 @@ export default class Tuner extends Component {
         frequency = Math.round(frequency * FREQ_PRECISION) / FREQ_PRECISION;
 
         return (
-            <View style={{flex: 1, alignSelf: 'stretch'}}>
+            <View style={[{flex: 1, alignSelf: 'stretch'}, this.props.style]}>
                 <Tuning style={tuningStyle} />
                 <MeasuringScale
                     style={tunerViewStyle}

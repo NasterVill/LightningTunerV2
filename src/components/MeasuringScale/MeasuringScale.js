@@ -54,7 +54,6 @@ export default class MeasuringScale extends Component {
                                 leftLabel={leftLabel}
                                 centralLabel={centralLabel}
                                 rightLabel={rightLabel}
-                                style={undefined}
                             />
                             <Svg
                                 height={this.state.dimensions.height}

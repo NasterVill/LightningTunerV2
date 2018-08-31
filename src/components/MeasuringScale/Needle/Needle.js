@@ -3,7 +3,7 @@ import { Animated } from 'react-native';
 import {Line} from 'react-native-svg';
 
 const MAX_STEPS = 100;
-const ANIMATION_DURATION = 600;
+const ANIMATION_DURATION = 500;
 const DEFAULT_POS = 50;
 
 let AnimatedLine = Animated.createAnimatedComponent(Line);
@@ -38,6 +38,7 @@ export default class Needle extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (this.props.toPos !== nextProps.toPos) {
+            this.state.currPos.stopAnimation();
             this.animate(nextProps.toPos);
         }
     }
