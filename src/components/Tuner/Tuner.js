@@ -4,7 +4,7 @@ import { DeviceEventEmitter, View, Text } from 'react-native';
 import Permissions from 'react-native-permissions';
 import _ from 'lodash';
 import AudioDummy from '../../audioprocessing/AudioDummy';
-import Tuning from '../Tuning/Tuning';
+import Tuning from '../Tuning';
 import MeasuringScale from '../MeasuringScale';
 import { styles } from './styles';
 

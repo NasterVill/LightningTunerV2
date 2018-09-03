@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Svg, Circle } from 'react-native-svg';
 import { View } from 'react-native';
-import MeasuringArc from './MeasuringArc/MeasuringArc';
-import Needle from './Needle/Needle';
+import MeasuringArc from './MeasuringArc';
+import Needle from './Needle';
 import { styles } from './styles';
-import MeasuringDesignation from "./MeasuringDesignation/MeasuringDesignation";
+import MeasuringDesignation from "./MeasuringDesignation";
 
 const MARGIN_BOTTOM = 20;
 const BIG_CIRCLE_RADIUS = ( MARGIN_BOTTOM - 4 ) / 2;
