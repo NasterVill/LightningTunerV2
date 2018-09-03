@@ -1,13 +1,12 @@
 import { StyleSheet } from 'react-native';
-
-const OFFSET = 20;
+import { MARGIN_BOTTOM } from "../constants";
 
 const generateStyles = (width, height, radius, angle) => {
     angle = angle / 180 * Math.PI;
 
-    let horizontalOffset = width / 2 - radius * Math.cos(angle) - OFFSET;
-    let topOffsetSides = height - radius * Math.sin(angle) - OFFSET;
-    let topOffsetCentral = height - radius - OFFSET;
+    let horizontalOffset = width / 2 - height * Math.cos(angle);
+    let topOffsetSides = height - radius * Math.sin(angle) - MARGIN_BOTTOM;
+    let topOffsetCentral = height - radius - MARGIN_BOTTOM;
     let rotationAngle = Math.PI / 2 - angle;
 
     return StyleSheet.create({

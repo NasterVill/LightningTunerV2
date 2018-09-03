@@ -5,11 +5,12 @@ import MeasuringArc from './MeasuringArc';
 import Needle from './Needle';
 import { styles } from './styles';
 import MeasuringDesignation from "./MeasuringDesignation";
-
-const MARGIN_BOTTOM = 20;
-const BIG_CIRCLE_RADIUS = ( MARGIN_BOTTOM - 4 ) / 2;
-const SMALLER_CIRCLE_RADIUS = BIG_CIRCLE_RADIUS * 0.6;
-const SVG_HEIGHT_RATIO = 0.9;
+import {
+    MARGIN_BOTTOM,
+    BIG_CIRCLE_RADIUS,
+    SMALLER_CIRCLE_RADIUS,
+    SVG_HEIGHT_RATIO
+} from './constants';
 
 export default class MeasuringScale extends Component {
 	constructor(props) {
