@@ -3,7 +3,7 @@ import { Animated } from 'react-native';
 import {Line} from 'react-native-svg';
 
 const MAX_STEPS = 100;
-const ANIMATION_DURATION = 500;
+const ANIMATION_DURATION = 600;
 const DEFAULT_POS = 50;
 
 let AnimatedLine = Animated.createAnimatedComponent(Line);

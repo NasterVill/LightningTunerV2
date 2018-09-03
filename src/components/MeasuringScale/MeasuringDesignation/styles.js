@@ -16,7 +16,7 @@ const generateStyles = (width, height, angle) => {
 
     return StyleSheet.create({
         containerStyle: {
-
+            //backgroundColor: 'yellow'
         },
         leftTextStyle: {
             color: 'black',
