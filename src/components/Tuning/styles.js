@@ -6,10 +6,11 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         marginHorizontal: 20,
-        marginTop: 20
+        //marginTop: 20
     },
     textStyle: {
         fontSize: 22,
+        textAlign: 'center',
         color: 'grey'
     }
 });

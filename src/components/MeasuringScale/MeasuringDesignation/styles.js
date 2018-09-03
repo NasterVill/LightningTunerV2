@@ -1,18 +1,14 @@
 import { StyleSheet } from 'react-native';
 
-const generateStyles = (width, height, angle) => {
-    let leftOffset = 10;
-    let rightOffset = 10;
-    let topOffsetSides = 65;
-    let topOffsetCentral = 35;
-    let rotationAngle = 90 - angle;
+const OFFSET = 20;
 
-    if (width > height) {
-        leftOffset = width / 4.5;
-        rightOffset = width / 4.5;
-        topOffsetCentral = 20;
-        topOffsetSides = 105;
-    }
+const generateStyles = (width, height, radius, angle) => {
+    angle = angle / 180 * Math.PI;
+
+    let horizontalOffset = width / 2 - radius * Math.cos(angle) - OFFSET;
+    let topOffsetSides = height - radius * Math.sin(angle) - OFFSET;
+    let topOffsetCentral = height - radius - OFFSET;
+    let rotationAngle = Math.PI / 2 - angle;
 
     return StyleSheet.create({
         containerStyle: {
@@ -21,9 +17,9 @@ const generateStyles = (width, height, angle) => {
         leftTextStyle: {
             color: 'black',
             position: 'absolute',
-            left: leftOffset,
+            left: horizontalOffset,
             top: topOffsetSides,
-            transform: [{ rotate: `${-rotationAngle}deg`}]
+            transform: [{ rotate: `${-rotationAngle}rad`}]
         },
         centralTextStyle: {
             color: 'black',
@@ -33,9 +29,9 @@ const generateStyles = (width, height, angle) => {
         rightTextStyle: {
             color: 'black',
             position: 'absolute',
-            right: rightOffset,
+            right: horizontalOffset,
             top: topOffsetSides,
-            transform: [{ rotate: `${rotationAngle}deg`}]
+            transform: [{ rotate: `${rotationAngle}rad`}]
         }
     });
 };

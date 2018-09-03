@@ -46,11 +46,12 @@ export default class MeasuringScale extends Component {
 				<View style={{flex: 1, alignSelf: 'stretch'}} onLayout={this.onLayout}>
                     {
                         this.state.dimensions ?
-                        <View style={{ flex: 1, flexDirection: 'column', alignSelf: 'stretch', justifyContent: 'center' }}>
+                        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
                             <MeasuringDesignation
                                 height={this.state.dimensions.height}
                                 width={this.state.dimensions.width}
                                 startAngle={this.computeStartAngle()}
+                                radius={this.computeSvgDrawRadius()}
                                 leftLabel={leftLabel}
                                 centralLabel={centralLabel}
                                 rightLabel={rightLabel}

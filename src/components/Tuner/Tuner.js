@@ -14,12 +14,12 @@ export default class Tuner extends Component {
     constructor(props) {
         super(props);
 
-        this.audioProcesor = new AudioDummy(_.throttle((frequency) => this.setState({ frequency }), 1000));
+        this.audioProcessor = new AudioDummy(_.throttle((frequency) => this.setState({ frequency }), 1000));
 
         Permissions.request('microphone').then(response => {
             if (response === 'authorized') {
-                this.audioProcesor.init();
-                this.audioProcesor.run();
+                this.audioProcessor.init();
+                this.audioProcessor.run();
             }
         });
 
@@ -61,7 +61,7 @@ export default class Tuner extends Component {
     }
 
     componentWillUnmount() {
-        this.audioProcesor.stop();
+        this.audioProcessor.stop();
     }
 };
 
@@ -138,12 +138,12 @@ export default class Tuner extends Component {
 	constructor(props) {
 		super(props);
 
-		this.audioProcesor = new AudioDummy(_.throttle((frequency) => this.setState({ frequency }), 2000));
+		this.audioProcessor = new AudioDummy(_.throttle((frequency) => this.setState({ frequency }), 2000));
 
 		Permissions.request('microphone').then(response => {
 			if (response === 'authorized') {
-				this.audioProcesor.init();
-				this.audioProcesor.run();
+				this.audioProcessor.init();
+				this.audioProcessor.run();
 			}
 		});
 
@@ -174,7 +174,7 @@ export default class Tuner extends Component {
 	}
 
 	componentWillUnmount() {
-		this.audioProcesor.stop();
+		this.audioProcessor.stop();
 	}
 };
 */
