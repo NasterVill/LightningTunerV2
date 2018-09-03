@@ -48,8 +48,6 @@ export default class MeasuringArc extends Component {
     }
 
     drawTick(angle, tickLength, radius, strokeWidth) {
-	    debugger;
-
 	    let { cx, cy } = this.props;
 
         let x1 = cx - radius * Math.cos(angle);

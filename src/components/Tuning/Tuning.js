@@ -13,8 +13,8 @@ export default class Tuning extends Component {
 
             if(this.props.closestNote === currentValue) {
                 textStyleSpecific = {
-                    fontSize: 24,
-                    color: 'black',
+                    fontSize: 26,
+                    color: '#dec50c',
                 };
             }
 

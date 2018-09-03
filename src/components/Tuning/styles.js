@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
         marginTop: 20
     },
     textStyle: {
-        fontSize: 20,
+        fontSize: 22,
         color: 'grey'
     }
 });
