@@ -13,14 +13,14 @@ export default class MeasuringArc extends Component {
 
 	drawTicks() {
 	    let Arc = [];
-	    let { radius, startAngle, divisionAmount } = this.props;
+        const { radius, startAngle, divisionAmount } = this.props;
 
-        let smallTickLength = radius * SMALL_TICK_LENGTH_RATIO;
-        let bigTickLength = radius * BIG_TICK_LENGTH_RATIO;
+        const smallTickLength = radius * SMALL_TICK_LENGTH_RATIO;
+        const bigTickLength = radius * BIG_TICK_LENGTH_RATIO;
 
-        let endAngle = 180 - startAngle;
-        let midAngle = 90;
-        let step = (endAngle - startAngle) / divisionAmount;
+        const endAngle = 180 - startAngle;
+        const midAngle = 90;
+        const step = (endAngle - startAngle) / divisionAmount;
         
         let currentAngle = startAngle;
 
@@ -48,12 +48,12 @@ export default class MeasuringArc extends Component {
     }
 
     drawTick(angle, tickLength, radius, strokeWidth) {
-	    let { cx, cy } = this.props;
+        const { cx, cy } = this.props;
 
-        let x1 = cx - radius * Math.cos(angle);
-        let y1 = cy - radius * Math.sin(angle);
-        let x2 = x1 + tickLength * Math.cos(angle);
-        let y2 = y1 + tickLength * Math.sin(angle);
+        const x1 = cx - radius * Math.cos(angle);
+        const y1 = cy - radius * Math.sin(angle);
+        const x2 = x1 + tickLength * Math.cos(angle);
+        const y2 = y1 + tickLength * Math.sin(angle);
 
 	    return (
 	        <Line

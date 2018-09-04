@@ -40,6 +40,8 @@
 		E7BA129BD415446FAF5C625A /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1510FF2D8434438B837CD336 /* libRNSVG.a */; };
 		7BE1B2B33EEC4440BEBDB20D /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1500C63A6D4134BBBF0AB6 /* libRNSVG-tvOS.a */; };
 		A06DF4C0626D40359BD86A48 /* libRNAudioProcessing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B36FB59B4684BC49F814FD0 /* libRNAudioProcessing.a */; };
+		B6F320C45AE14661A67F9723 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F824043CAC4BFDA3237CDC /* libReactNativeNavigation.a */; };
+		059A8A42BD7745B296DE5188 /* ReactNativeNavigationTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 6055FA209A4B436DBA6F4DA6 /* ReactNativeNavigationTests.xctest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -350,6 +352,9 @@
 		9C1500C63A6D4134BBBF0AB6 /* libRNSVG-tvOS.a */ = {isa = PBXFileReference; name = "libRNSVG-tvOS.a"; path = "libRNSVG-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		87CE2F68DE474CE2A1E00353 /* RNAudioProcessing.xcodeproj */ = {isa = PBXFileReference; name = "RNAudioProcessing.xcodeproj"; path = "../node_modules/react-native-audio-processing/ios/RNAudioProcessing.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		1B36FB59B4684BC49F814FD0 /* libRNAudioProcessing.a */ = {isa = PBXFileReference; name = "libRNAudioProcessing.a"; path = "libRNAudioProcessing.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		DFEB735B63464F6DAD939B91 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativeNavigation.xcodeproj"; path = "../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		41F824043CAC4BFDA3237CDC /* libReactNativeNavigation.a */ = {isa = PBXFileReference; name = "libReactNativeNavigation.a"; path = "libReactNativeNavigation.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		6055FA209A4B436DBA6F4DA6 /* ReactNativeNavigationTests.xctest */ = {isa = PBXFileReference; name = "ReactNativeNavigationTests.xctest"; path = "ReactNativeNavigationTests.xctest"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.cfbundle; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +385,8 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				E7BA129BD415446FAF5C625A /* libRNSVG.a in Frameworks */,
 				A06DF4C0626D40359BD86A48 /* libRNAudioProcessing.a in Frameworks */,
+				B6F320C45AE14661A67F9723 /* libReactNativeNavigation.a in Frameworks */,
+				059A8A42BD7745B296DE5188 /* ReactNativeNavigationTests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +576,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				40F28B2D0AFA467A99EC96A3 /* RNSVG.xcodeproj */,
 				87CE2F68DE474CE2A1E00353 /* RNAudioProcessing.xcodeproj */,
+				DFEB735B63464F6DAD939B91 /* ReactNativeNavigation.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1198,11 +1206,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-audio-processing\ios",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 				);
 			};
 			name = Debug;
@@ -1226,11 +1237,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-audio-processing\ios",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 				);
 			};
 			name = Release;
@@ -1254,6 +1268,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-audio-processing\ios",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 				);
 			};
 			name = Debug;
@@ -1276,6 +1291,7 @@
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-audio-processing\ios",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 				);
 			};
 			name = Release;
@@ -1308,11 +1324,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-audio-processing\ios",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 				);
 			};
 			name = Debug;
@@ -1345,11 +1364,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-audio-processing\ios",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 				);
 			};
 			name = Release;
@@ -1381,11 +1403,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-audio-processing\ios",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 				);
 			};
 			name = Debug;
@@ -1417,11 +1442,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-svg\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-audio-processing\ios",
+					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 				);
 			};
 			name = Release;

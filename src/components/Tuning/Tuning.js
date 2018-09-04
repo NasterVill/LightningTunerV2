@@ -8,17 +8,24 @@ export default class Tuning extends Component {
 	}
 
 	renderNotes() {
-        return this.props.notes.map((currentValue, index) => {
+        return this.props.notes.map((note, index) => {
             let textStyleSpecific = {};
 
-            if(this.props.closestNote === currentValue) {
+            if(note === this.props.closestNote) {
                 textStyleSpecific = {
                     fontSize: 26,
                     color: '#dec50c',
                 };
             }
 
-            return <Text style={[styles.textStyle, textStyleSpecific]} key={index}>{currentValue}</Text>;
+            return (
+                <Text
+                    style={[styles.textStyle, textStyleSpecific]}
+                    key={index}
+                >
+                    {note}
+                </Text>
+            );
         });
 	}
 

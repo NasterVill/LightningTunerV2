@@ -17,15 +17,13 @@ export default class Needle extends Component {
         };
 
         this.state.currPos.addListener((toPos) => {
-            let { cx, cy, length, startAngle } = this.props;
+            const { cx, cy, length, startAngle } = this.props;
 
-            let step = ((180 - 2 * startAngle) / MAX_STEPS);
-            let angle = step * toPos.value + startAngle;
+            const step = ((180 - 2 * startAngle) / MAX_STEPS);
+            const angle = step * toPos.value + startAngle;
 
-            let x1 = cx - length * Math.cos(angle * Math.PI / 180);
-            let y1 = cy - length * Math.sin(angle * Math.PI / 180);
-
-            console.log(angle, toPos.value);
+            const x1 = cx - length * Math.cos(angle * Math.PI / 180);
+            const y1 = cy - length * Math.sin(angle * Math.PI / 180);
 
             this._line.setNativeProps({
                 x1: x1.toString(),
@@ -54,13 +52,13 @@ export default class Needle extends Component {
     }
 
     render() {
-        let { cx, cy, length, startAngle } = this.props;
+        const { cx, cy, length, startAngle } = this.props;
 
-        let step = ((180 - 2 * startAngle) / MAX_STEPS);
-        let angle = step * DEFAULT_POS + startAngle;
+        const step = ((180 - 2 * startAngle) / MAX_STEPS);
+        const angle = step * DEFAULT_POS + startAngle;
 
-        let startX = cx - length * Math.cos(angle * Math.PI / 180);
-        let startY = cy - length * Math.sin(angle * Math.PI / 180);
+        const startX = cx - length * Math.cos(angle * Math.PI / 180);
+        const startY = cy - length * Math.sin(angle * Math.PI / 180);
 
         return (
             <AnimatedLine

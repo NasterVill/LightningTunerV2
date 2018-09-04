@@ -30,12 +30,12 @@ export default class Tuner extends Component {
         return this.state.frequency / 5;
     }
 
-    getNote() {
+    getClosestNote() {
         return this.state.tuning[Math.round(this.state.frequency / 100)];
     }
 
     render() {
-        let { textStyle, tuningStyle, tunerViewStyle } = styles;
+        const { textStyle, tuningStyle, tunerViewStyle } = styles;
 
         let { frequency } = this.state;
         frequency = Math.round(frequency * FREQ_PRECISION) / FREQ_PRECISION;
@@ -45,7 +45,7 @@ export default class Tuner extends Component {
                 <Tuning
                     style={tuningStyle}
                     notes={this.state.tuning}
-                    closestNote={this.getNote()}
+                    closestNote={this.getClosestNote()}
                 />
                 <MeasuringScale
                     style={tunerViewStyle}

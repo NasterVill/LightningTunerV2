@@ -30,7 +30,7 @@ export default class MeasuringScale extends Component {
     }
 
     computeStartAngle() {
-        let { width, height } = this.state.dimensions;
+        const { width, height } = this.state.dimensions;
         return Math.atan(height * SVG_HEIGHT_RATIO / (width / 2)) * 180 / Math.PI;
     }
 
