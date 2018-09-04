@@ -10,15 +10,15 @@ export const styles = StyleSheet.create({
         textAlignVertical: 'center',
         paddingBottom: 15,
         color: 'black',
-        flex: 1,
+        flex: 3,
         //backgroundColor: 'red',
     },
     tuningStyle: {
-        flex: 1,
+        flex: 2,
         //backgroundColor: 'green',
     },
     tunerViewStyle: {
-        flex: 5,
+        flex: 9,
         //backgroundColor: 'blue',
     }
 });

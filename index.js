@@ -1,14 +1,20 @@
 import { Navigation } from "react-native-navigation";
-import App from "./App";
+import TuningScreen from "./src/screens/TuningScreen";
 
-Navigation.registerComponent(`navigation.playground.WelcomeScreen`, () => App);
+Navigation.registerComponent(`navigation.playground.TuningScreen`, () => TuningScreen);
 
 Navigation.events().registerAppLaunchedListener(() => {
     Navigation.setRoot({
-            root: {
-                component: {
-                    name: "navigation.playground.WelcomeScreen"
-                }
+        root: {
+            stack: {
+                children: [
+                    {
+                        component: {
+                            name: "navigation.playground.TuningScreen",
+                        }
+                    }
+                ],
             }
-        });
+        }
     });
+});
