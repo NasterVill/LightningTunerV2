@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Animated } from 'react-native';
 import {Line} from 'react-native-svg';
 
@@ -43,11 +43,11 @@ export default class Needle extends Component {
 
     animate(toPos) {
         Animated.timing(
-           this.state.currPos,
-           {
-               toValue: toPos,
-               duration: ANIMATION_DURATION
-           }
+            this.state.currPos,
+            {
+                toValue: toPos,
+                duration: ANIMATION_DURATION
+            }
         ).start();
     }
 
@@ -89,67 +89,71 @@ export default class Needle extends Component {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-import React, {Component} from 'react';
-import {Line} from 'react-native-svg';
-
-const MAX_STEPS = 100;
-
-export default class Needle extends Component {
+/*export default class Needle extends Component {
     constructor(props) {
         super(props);
+
+        this.startCoordinates = this.computeCoordinates(DEFAULT_POS);
+
+        this.state = {
+            currPos: new Animated.ValueXY({
+                x: this.startCoordinates.x,
+                y: this.startCoordinates.y
+            }),
+        };
+
+        this.state.currPos.addListener(() => {
+            this._line.setNativeProps({
+                x1: this.state.currPos.x.toString(),
+                y1: this.state.currPos.y.toString(),
+                x2: this.props.cx.toString(),
+                y2: this.props.cy.toString()
+            });
+        });
+    }
+
+    computeAngle(pos) {
+        const { startAngle } = this.props;
+        const step = ((180 - 2 * startAngle) / MAX_STEPS);
+
+        return step * pos + startAngle;
+    }
+
+    computeCoordinates(pos) {
+        const { cx, cy, length } = this.props;
+        const angle = this.computeAngle(pos);
+
+        return {
+            x: cx - length * Math.cos(angle * Math.PI / 180),
+            y: cy - length * Math.sin(angle * Math.PI / 180)
+        };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.toPos !== nextProps.toPos) {
+            this.state.currPos.stopAnimation();
+            this.animate(nextProps.toPos);
+        }
+    }
+
+    animate(toPos) {
+        Animated.timing(
+           this.state.currPos,
+           {
+               toValue: this.computeCoordinates(toPos),
+               duration: ANIMATION_DURATION
+           }
+        ).start();
     }
 
     render() {
-        let { cx, cy, length, startAngle, toPos } = this.props
-
-        let step = ((180 - 2 * startAngle) / MAX_STEPS);
-        let angle = step * toPos + startAngle;
-
-        let x1 = cx - length * Math.cos(angle * Math.PI / 180);
-        let y1 = cy - length * Math.sin(angle * Math.PI / 180);
+        const { cx, cy } = this.props;
 
         return (
-            <Line
-                x1={x1}
-                y1={y1}
+            <AnimatedLine
+                ref={ref => this._line = ref}
+                x1={this.startCoordinates.x}
+                y1={this.startCoordinates.y}
                 x2={cx}
                 y2={cy}
                 stroke="#dec50c"
@@ -157,5 +161,4 @@ export default class Needle extends Component {
             />
         );
     }
-};
-*/
+};*/

@@ -1,4 +1,4 @@
-const FREQUENCY_MULTIPLIER = 500;
+const FREQUENCY_MULTIPLIER = 1300;
 const DELAY = 800;
 
 export default class AudioDummy {

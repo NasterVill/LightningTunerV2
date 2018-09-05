@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { Navigation } from 'react-native-navigation';
 import Tuner from '../../components/Tuner/index'
 import styles from './styles';
 
 export default class TuningScreen extends Component {
     static options(passProps) {
-        console.log('options called!');
-
         return {
             topBar: {
                 title: {
@@ -26,7 +23,6 @@ export default class TuningScreen extends Component {
 
     constructor(props) {
         super(props);
-        Navigation.events().bindComponent(this);
     }
 
     render() {

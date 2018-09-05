@@ -14,20 +14,26 @@ export default class Tuner extends Component {
     constructor(props) {
         super(props);
 
-        this.audioProcessor = new AudioDummy(_.throttle((frequency) => this.setState({ frequency }), 1000));
-
         Permissions.request('microphone').then(response => {
             if (response === 'authorized') {
-                this.audioProcessor.init();
-                this.audioProcessor.run();
+                JAudioProcessor.start();
             }
         });
 
         this.state = { frequency: 0, tuning: ['E', 'A', 'D', 'G', 'B', 'Eʰ'] };
     }
 
+    setFrequency = ({ frequency }) => this.setState({ frequency });
+
+    componentDidMount() {
+        DeviceEventEmitter.addListener(
+            JAudioProcessor.FREQUENCY_DETECTED_EVENT_NAME,
+            this.setFrequency
+        );
+    }
+
     computePos() {
-        return this.state.frequency / 5;
+        return this.state.frequency / 13;
     }
 
     getClosestNote() {
@@ -61,9 +67,41 @@ export default class Tuner extends Component {
     }
 
     componentWillUnmount() {
-        this.audioProcessor.stop();
+        JAudioProcessor.stop();
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -85,47 +123,59 @@ export default class Tuner extends Component {
 
         Permissions.request('microphone').then(response => {
             if (response === 'authorized') {
-                JAudioProcessor.init();
-                JAudioProcessor.run();
+                JAudioProcessor.start();
+                console.log(JAudioProcessor, 'in constructor');
             }
         });
 
-        this.state = { frequency: 0 };
+        this.state = { frequency: 0, tuning: ['E', 'A', 'D', 'G', 'B', 'Eʰ'] };
     }
 
-    setFrequency = _.throttle(({ frequency }) => this.setState({ frequency }), 10000);
+    setFrequency = _.throttle(({ frequency }) => console.log(frequency) || this.setState({ frequency }), 1000);
 
     componentDidMount() {
+        console.log('tuner did mount');
         DeviceEventEmitter.addListener(
             JAudioProcessor.FREQUENCY_DETECTED_EVENT_NAME,
             this.setFrequency
         );
+
     }
 
-	computePos() {
-        return this.state.frequency / 5;
+    computePos() {
+        return this.state.frequency / 13;
     }
 
-	render() {
-        let { textStyle, tuningStyle, tunerViewStyle } = styles;
+    getClosestNote() {
+        return this.state.tuning[Math.round(this.state.frequency / 100)];
+    }
 
-		let { frequency } = this.state;
+    render() {
+        console.log('render');
+        const { textStyle, tuningStyle, tunerViewStyle } = styles;
+
+        let { frequency } = this.state;
         frequency = Math.round(frequency * FREQ_PRECISION) / FREQ_PRECISION;
 
-        console.log(frequency);
-
-		return (
-			<View style={{flex: 1, alignSelf: 'stretch'}}>
-				<Tuning style={tuningStyle} />
-				<MeasuringScale
-					style={tunerViewStyle}
+        return (
+            <View style={[{flex: 1, alignSelf: 'stretch'}, this.props.style]}>
+                <Tuning
+                    style={tuningStyle}
+                    notes={this.state.tuning}
+                    closestNote={this.getClosestNote()}
+                />
+                <MeasuringScale
+                    style={tunerViewStyle}
                     divisionAmount={20}
-					toPos={this.computePos()}
-				/>
-				<Text style={textStyle}>{frequency} Hz</Text>
-			</View>
-		);
-	}
+                    leftLabel="-50c"
+                    centralLabel="249.99"
+                    rightLabel="+50c"
+                    toPos={this.computePos()}
+                />
+                <Text style={textStyle}>{frequency} Hz</Text>
+            </View>
+        );
+    }
 
     componentWillUnmount() {
         JAudioProcessor.stop();
