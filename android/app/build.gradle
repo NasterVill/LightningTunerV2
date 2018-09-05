@@ -142,6 +142,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-audio-processing')
     compile project(':react-native-svg')
     implementation project(':react-native-audio-processing')
     implementation project(':react-native-svg')
