@@ -8,10 +8,13 @@ export default class Tuning extends Component {
 	}
 
 	renderNotes() {
-        return this.props.notes.map((note, index) => {
+        let { notes, closestNote } = this.props;
+
+        return notes.map((note, index) => {
             let textStyleSpecific = {};
 
-            if(note === this.props.closestNote) {
+            if(note.noteData.name === closestNote.noteData.name &&
+                note.octave.name === closestNote.octave.name) {
                 textStyleSpecific = {
                     fontSize: 26,
                     color: '#dec50c',
@@ -23,7 +26,7 @@ export default class Tuning extends Component {
                     style={[styles.textStyle, textStyleSpecific]}
                     key={index}
                 >
-                    {note}
+                    {note.noteData.name}
                 </Text>
             );
         });

@@ -1,3 +1,1 @@
-import TuningScreen from './TuningScreen';
-
-export default TuningScreen;
+export { TuningScreen } from './TuningScreen';

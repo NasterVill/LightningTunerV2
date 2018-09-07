@@ -12,7 +12,7 @@ import {
     SVG_HEIGHT_RATIO
 } from './constants';
 
-export default class MeasuringScale extends Component {
+export class MeasuringScale extends Component {
 	constructor(props) {
         super(props);
 

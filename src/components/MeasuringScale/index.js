@@ -1,3 +1,2 @@
-import MeasuringScale from './MeasuringScale';
-
-export default MeasuringScale;
+export { MeasuringScale } from './MeasuringScale';
+export { UNIT_INTERVALS_AMOUNT } from "./constants";

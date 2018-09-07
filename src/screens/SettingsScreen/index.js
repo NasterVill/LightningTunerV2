@@ -1,3 +1,1 @@
-import SettingsScreen from './SettingsScreen';
-
-export default SettingsScreen;
+export { SettingsScreen } from './SettingsScreen';
