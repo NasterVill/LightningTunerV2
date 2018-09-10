@@ -11,7 +11,7 @@ import { notesMap, octaves, getFrequency } from "../../musicdata";
 
 const FREQ_PRECISION = 100;
 
-export default class Tuner extends Component {
+class Tuner extends Component {
     constructor(props) {
         super(props);
 
@@ -21,20 +21,7 @@ export default class Tuner extends Component {
             }
         });
 
-        this.state = {
-            tuning: {
-                name: 'Standard',
-                notes: [
-                    { noteData: notesMap.E, octave: octaves.GREAT },
-                    { noteData: notesMap.A, octave: octaves.GREAT },
-                    { noteData: notesMap.D, octave: octaves.SMALL },
-                    { noteData: notesMap.G, octave: octaves.SMALL },
-                    { noteData: notesMap.B, octave: octaves.SMALL },
-                    { noteData: notesMap.E, octave: octaves.ONE_LINED }
-                ]
-            },
-            frequency: 0
-        };
+        this.state = { frequency: 0 };
     }
 
     setFrequency = ({ frequency }) => this.setState({frequency});
@@ -67,7 +54,7 @@ export default class Tuner extends Component {
         let closestNoteIndex = -1;
         let optimalDifference = Number.MAX_VALUE;
 
-        this.state.tuning.notes.forEach((note, index) => {
+        this.props.currentTuning.notes.forEach((note, index) => {
             let difference = Math.abs((frequency - getFrequency(note)));
             if (difference < optimalDifference) {
                 closestNoteIndex = index;
@@ -81,18 +68,20 @@ export default class Tuner extends Component {
     render() {
         const { textStyle, tuningStyle, tunerViewStyle } = styles;
 
-        let { frequency, tuning } = this.state;
+        let { currentTuning, style } = this.props;
+
+        let { frequency } = this.state;
         frequency = Math.round(frequency * FREQ_PRECISION) / FREQ_PRECISION;
 
-        const closestNote = tuning.notes[this.getClosestNoteIndex()];
+        const closestNote = currentTuning.notes[this.getClosestNoteIndex()];
         const closestFrequency = Math.round(getFrequency(closestNote) * FREQ_PRECISION) / FREQ_PRECISION;
         const pos = this.computePos(closestFrequency, frequency);
 
         return (
-            <View style={[{flex: 1, alignSelf: 'stretch'}, this.props.style]}>
+            <View style={[{flex: 1, alignSelf: 'stretch'}, style]}>
                 <Tuning
                     style={tuningStyle}
-                    notes={tuning.notes}
+                    notes={currentTuning.notes}
                     closestNote={closestNote}
                 />
                 <MeasuringScale
@@ -113,12 +102,11 @@ export default class Tuner extends Component {
     }
 }
 
-/*const mapStateToProps = ({ tuning }) => {
-    return  { tuning };
+const mapStateToProps = ({ currentTuning }) => {
+    return  { currentTuning };
 };
 
-export default connect(mapStateToProps)(Tuner);*/
-
+export default connect(mapStateToProps)(Tuner);
 
 
 //"react-native-audio-processing": "git+https://github.com/NasterVill/RNAudioProcessingModule.git",

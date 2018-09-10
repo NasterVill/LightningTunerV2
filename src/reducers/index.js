@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import TuningReducer from './TuningReducer'
+import CurrentTuningReducer from './CurrentTuningReducer'
+import TuningsReducer from './TuningsReducer';
 
 export default combineReducers({
-    tunings: TuningReducer,
+    tunings: TuningsReducer,
+    currentTuning: CurrentTuningReducer,
 });

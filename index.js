@@ -37,7 +37,6 @@ Navigation.events().registerAppLaunchedListener(() => {
                                     }
                                 }
                             }
-
                         }
                     }
                 ],

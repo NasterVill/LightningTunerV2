@@ -6,8 +6,7 @@ export function getFrequency(note, baseFrequency = BASE_A_FREQ) {
             (note.noteData.semiToneDistance +
                 note.octave.coefficient * 12
             ) / 12
-        )
-    );
+        ));
 }
 
 export const notesMap = {
