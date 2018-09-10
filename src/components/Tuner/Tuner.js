@@ -10,7 +10,6 @@ import { styles } from './styles';
 import { notesMap, octaves, getFrequency } from "../../musicdata";
 
 const FREQ_PRECISION = 100;
-const DELAY = 500;
 
 export default class Tuner extends Component {
     constructor(props) {
@@ -52,16 +51,11 @@ export default class Tuner extends Component {
     }
 
     computePos(baseFrequency, currentFrequency) {
-        console.log('current:' , currentFrequency,'base:', baseFrequency, 'division:', currentFrequency / baseFrequency, 'log2:', this.log2(currentFrequency / baseFrequency));
-
-        let cents = currentFrequency > 0 ? (1200 * this.log2(currentFrequency / baseFrequency)) : 0;
-
+        const cents = currentFrequency > 0 ? (1200 * this.log2(currentFrequency / baseFrequency)) : 0;
         let pos = cents / 2 + (UNIT_INTERVALS_AMOUNT / 2);
 
         if (pos > 100) pos = 100;
         if (pos < 0) pos = 0;
-
-        console.log(cents, pos);
 
         return pos;
     }

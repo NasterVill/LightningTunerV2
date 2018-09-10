@@ -1,10 +1,10 @@
 import { Navigation } from "react-native-navigation";
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import { screens, screensNames } from "./src/navigation/screens";
 import registerScreens from "./src/navigation/registerScreens";
 import rootReducer from './src/reducers'
 
-const reduxStore = applyMiddleware(rootReducer)(createStore);
+const reduxStore = createStore(rootReducer);
 
 registerScreens(reduxStore);
 

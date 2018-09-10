@@ -6,6 +6,8 @@ import styles from './styles';
 
 export class TuningScreen extends Component {
     static options(passProps) {
+        console.log(screens[screensNames.TuningScreen].title);
+
         return {
             topBar: {
                 title: {
