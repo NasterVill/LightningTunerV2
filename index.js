@@ -30,6 +30,14 @@ Navigation.events().registerAppLaunchedListener(() => {
                     {
                         component: {
                             name: screens[screensNames.TuningScreen].id,
+                            options: {
+                                topBar: {
+                                    title: {
+                                        text: screens[screensNames.TuningScreen].title,
+                                    }
+                                }
+                            }
+
                         }
                     }
                 ],
