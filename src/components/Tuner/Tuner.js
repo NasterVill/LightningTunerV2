@@ -7,8 +7,10 @@ import { getFrequency } from "../../musicdata";
 import Tuning from '../Tuning';
 import { MeasuringScale, UNIT_INTERVALS_AMOUNT } from '../MeasuringScale';
 import { styles } from './styles';
+import _ from 'lodash';
 
 const FREQ_PRECISION = 100;
+const DELAY = 400;
 
 class Tuner extends Component {
     constructor(props) {
@@ -23,7 +25,7 @@ class Tuner extends Component {
         this.state = { frequency: 0 };
     }
 
-    setFrequency = ({ frequency }) => this.setState({frequency});
+    setFrequency = _.throttle(({ frequency }) => this.setState({frequency}), DELAY);
 
     componentDidMount() {
         DeviceEventEmitter.addListener(

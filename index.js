@@ -1,6 +1,8 @@
 import { Navigation } from "react-native-navigation";
 import { createStore } from 'redux';
+import { STACK_ID  } from './src/navigation/constants';
 import { screens, screensNames } from "./src/navigation/screens";
+import { buttons, buttonsNames} from "./src/navigation/buttons";
 import registerScreens from "./src/navigation/registerScreens";
 import rootReducer from './src/reducers'
 
@@ -26,18 +28,13 @@ Navigation.events().registerAppLaunchedListener(() => {
     Navigation.setRoot({
         root: {
             stack: {
+                id: STACK_ID,
                 children: [
                     {
                         component: {
-                            name: screens[screensNames.TuningScreen].id,
-                            options: {
-                                topBar: {
-                                    title: {
-                                        text: screens[screensNames.TuningScreen].title,
-                                    }
-                                }
-                            }
+                            name: screens[screensNames.TuningScreen].id
                         }
+
                     }
                 ],
             }
