@@ -1,13 +1,12 @@
-import JAudioProcessor from 'react-native-audio-processing';
 import React, { Component } from 'react'
 import { DeviceEventEmitter, View, Text } from 'react-native';
 import Permissions from 'react-native-permissions';
-import _ from 'lodash';
 import { connect } from 'react-redux';
+import RNAudioProcessor from 'react-native-audio-processing';
+import { getFrequency } from "../../musicdata";
 import Tuning from '../Tuning';
 import { MeasuringScale, UNIT_INTERVALS_AMOUNT } from '../MeasuringScale';
 import { styles } from './styles';
-import { notesMap, octaves, getFrequency } from "../../musicdata";
 
 const FREQ_PRECISION = 100;
 
@@ -17,7 +16,7 @@ class Tuner extends Component {
 
         Permissions.request('microphone').then(response => {
             if (response === 'authorized') {
-                JAudioProcessor.start();
+                RNAudioProcessor.start();
             }
         });
 
@@ -28,7 +27,7 @@ class Tuner extends Component {
 
     componentDidMount() {
         DeviceEventEmitter.addListener(
-            JAudioProcessor.FREQUENCY_DETECTED_EVENT_NAME,
+            RNAudioProcessor.FREQUENCY_DETECTED_EVENT_NAME,
             this.setFrequency
         );
     }
@@ -98,7 +97,7 @@ class Tuner extends Component {
     }
 
     componentWillUnmount() {
-        JAudioProcessor.stop();
+        RNAudioProcessor.stop();
     }
 }
 
@@ -107,6 +106,5 @@ const mapStateToProps = ({ currentTuning }) => {
 };
 
 export default connect(mapStateToProps)(Tuner);
-
 
 //"react-native-audio-processing": "git+https://github.com/NasterVill/RNAudioProcessingModule.git",
