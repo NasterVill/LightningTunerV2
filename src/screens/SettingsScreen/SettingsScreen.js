@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import {screens, screensNames} from "../../navigation/screens";
+import Settings from '../../components/Settings';
+import styles from './styles';
 
 export class SettingsScreen extends Component {
     static options(passProps) {
@@ -19,7 +21,8 @@ export class SettingsScreen extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.containerStyle}>
+                <Settings />
             </View>
         );
     }

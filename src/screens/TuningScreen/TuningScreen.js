@@ -37,7 +37,7 @@ export class TuningScreen extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.containerStyle}>
                 <Tuner />
             </View>
         );

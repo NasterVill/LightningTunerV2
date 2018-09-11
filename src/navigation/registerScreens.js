@@ -4,6 +4,6 @@ import { Navigation } from 'react-native-navigation';
 import { screens } from './screens';
 
 const registerScreens = (store) => Object.values(screens).
-forEach(screen => Navigation.registerComponentWithRedux(screen.id, () => screen.component, Provider, store));
+    forEach(screen => Navigation.registerComponentWithRedux(screen.id, () => screen.component, Provider, store));
 
 export default registerScreens;
