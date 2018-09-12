@@ -2,7 +2,6 @@ import { Navigation } from "react-native-navigation";
 import { createStore } from 'redux';
 import { STACK_ID  } from './src/navigation/constants';
 import { screens, screensNames } from "./src/navigation/screens";
-import { buttons, buttonsNames} from "./src/navigation/buttons";
 import registerScreens from "./src/navigation/registerScreens";
 import rootReducer from './src/reducers'
 
@@ -20,8 +19,11 @@ Navigation.events().registerAppLaunchedListener(() => {
             background: {
                 color: '#3F51B5'
             },
+            backButton: {
+                color: 'white'
+            },
             drawBehind: false,
-            visible: true
+            visible: true,
         }
     });
 

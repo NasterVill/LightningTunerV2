@@ -1,7 +1,15 @@
 import {notesMap} from "./notes";
 import {octaves} from "./octaves";
 
-export function getDefaultTunings(){
+export function tuningToString(tuning) {
+    let { name, notes } = tuning;
+
+    return `${name} (${notes.map((note, index) => {
+        return index === 0 ? note.noteData.name : ` ${note.noteData.name}`;
+    })})`;
+}
+
+export function getDefaultTunings() {
     return {
         'STANDARD': {
             name: 'Standard',
@@ -26,7 +34,7 @@ export function getDefaultTunings(){
             ]
         },
         'STANDARD_C': {
-            name: 'Standard_C',
+            name: 'Standard C',
             notes: [
                 { noteData: notesMap.C, octave: octaves.GREAT },
                 { noteData: notesMap.F, octave: octaves.GREAT },
@@ -37,7 +45,7 @@ export function getDefaultTunings(){
             ]
         },
         'DROP_D': {
-            name: 'Drop_D',
+            name: 'Drop D',
             notes: [
                 { noteData: notesMap.D, octave: octaves.GREAT },
                 { noteData: notesMap.A, octave: octaves.GREAT },
@@ -48,7 +56,7 @@ export function getDefaultTunings(){
             ]
         },
         'DROP_C': {
-            name: 'Drop_C',
+            name: 'Drop C',
             notes: [
                 { noteData: notesMap.C, octave: octaves.GREAT },
                 { noteData: notesMap.G, octave: octaves.GREAT },

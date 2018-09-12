@@ -15,5 +15,5 @@ export const screens = {
         id: 'navigation.playground.SettingsScreen',
         component: SettingsScreen,
         title: 'Settings',
-    },
+    }
 };
