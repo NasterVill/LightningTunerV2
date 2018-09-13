@@ -3,7 +3,10 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import ModalPicker from '../ModalPicker';
 import { tuningToString } from '../../musicdata/tunings';
+import { selectTuning } from "../../actions/tuningactions";
+import { bindActionCreators } from 'redux'
 import styles from './styles';
+
 
 class Settings extends Component {
     constructor(props){
@@ -14,19 +17,24 @@ class Settings extends Component {
         }
     }
 
-    onTuningsPress() {
+    onTuningsPress = () => {
         this.setState({ tuningPickerVisibility: true });
-    }
+    };
 
-    onDismissTuningSelection() {
+    onDismissTuningSelection = () => {
         this.setState({ tuningPickerVisibility: false });
-    }
+    };
+
+    onTuningSelected = (tuning) => {
+        this.props.selectTuning(tuning);
+        this.onDismissTuningSelection();
+    };
 
     generateTuningPickerValues() {
         return Object.values(this.props.tunings).map((tuning) => {
            return {
                title: tuningToString(tuning),
-               value: tuning.name
+               value: tuning
            }
         });
     }
@@ -36,16 +44,15 @@ class Settings extends Component {
             <View style={[{flex: 1, alignSelf: 'stretch'}, this.props.style]}>
                 <ModalPicker
                     visible={this.state.tuningPickerVisibility}
-                    animationType={'slide'}
                     transparent={true}
-                    headetText={'Select tuning'}
+                    headerText={'Select tuning'}
                     pickerValues={this.generateTuningPickerValues()}
-                    onValueSelected={() => {}}
-                    onDismissPicker={() => this.onDismissTuningSelection()}
+                    onValueSelected={this.onTuningSelected}
+                    onDismissPicker={this.onDismissTuningSelection}
                 />
                 <TouchableOpacity
                     style={styles.tuningsSettingsStyle}
-                    onPress={() => this.onTuningsPress()}
+                    onPress={this.onTuningsPress}
                 >
                     <Text style={styles.textStyle}>Tuning:</Text>
                     <Text style={styles.textStyle}>{tuningToString(this.props.currentTuning)}</Text>
@@ -55,8 +62,12 @@ class Settings extends Component {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ selectTuning }, dispatch);
+};
+
 const mapStateToProps = ({ currentTuning, tunings }) => {
     return  { currentTuning, tunings };
 };
 
-export default connect(mapStateToProps)(Settings);
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);
