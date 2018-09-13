@@ -15,8 +15,7 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontSize: 18,
-        fontWeight: '500',
-        color: '#555555'
+        fontWeight: '500'
     }
 });
 

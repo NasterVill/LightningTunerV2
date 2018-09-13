@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Text, TouchableHighlight, View, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Modal, Text, View, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 
 const ModalPicker = (props) => {
     const {
@@ -19,7 +19,16 @@ const ModalPicker = (props) => {
             transparent={transparent}
             onRequestClose={onDismissPicker}
         >
-            <TouchableOpacity style={{width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center'}} onPress={onDismissPicker}>
+            <TouchableOpacity
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: '#00000070',
+                }}
+                onPress={onDismissPicker}
+            >
                 <TouchableWithoutFeedback>
                     <View style={
                         {
@@ -36,27 +45,34 @@ const ModalPicker = (props) => {
                             elevation: 1,
                         }}
                     >
-                        <Text style={{ fontSize: 20, fontWeight: 'bold', alignSelf: 'center' }}>{headerText}</Text>
+                        <Text style={{
+                            fontSize: 20,
+                            fontWeight: 'bold',
+                            alignSelf: 'center',
+                            color: '#cbb20c'
+                            }}
+                        >
+                            {headerText}
+                            </Text>
                         {
                             pickerValues.map((value, index) => {
                                 return (
-                                    <TouchableHighlight
+                                    <TouchableOpacity
                                         key={index}
                                         onPress={() => onValueSelected(value.value)}
-                                        underlayColor="#dec50c"
                                         style={{ paddingTop: 4, paddingBottom: 4 }}
                                     >
                                         <Text style={{fontSize: 18}}>{ value.title }</Text>
-                                    </TouchableHighlight>
+                                    </TouchableOpacity>
                                 );
                             })
                         }
-                        <TouchableHighlight
+                        <TouchableOpacity
                             onPress={onDismissPicker}
                             style={{ paddingTop: 4, alignSelf: 'center' }}
                         >
-                            <Text style={{ color: '#999', fontSize: 18 }}>Cancel</Text>
-                        </TouchableHighlight>
+                            <Text style={{ color: '#cbb20c', fontSize: 18, opacity: 0.8 }}>Cancel</Text>
+                        </TouchableOpacity>
                     </View>
                 </TouchableWithoutFeedback>
             </TouchableOpacity>

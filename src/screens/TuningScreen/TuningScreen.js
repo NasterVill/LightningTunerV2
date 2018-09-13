@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Navigation } from "react-native-navigation";
-import Tuner from '../../components/Tuner/index'
+import Tuner from '../../containers/Tuner/index'
 import { screens, screensNames } from "../../../src/navigation/screens";
 import { topBarButtons, buttonsNames } from "../../navigation/topBarButtons";
 import { pushScreen } from "../../navigation/NavigationWrappers";

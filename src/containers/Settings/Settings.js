@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import ModalPicker from '../ModalPicker';
+import ModalPicker from '../../components/ModalPicker/index';
 import { tuningToString } from '../../musicdata/tunings';
-import { selectTuning } from "../../actions/tuningactions";
+import { selectTuning } from "../../actions/tuningactions/index";
 import { bindActionCreators } from 'redux'
 import styles from './styles';
 
@@ -45,6 +45,7 @@ class Settings extends Component {
                 <ModalPicker
                     visible={this.state.tuningPickerVisibility}
                     transparent={true}
+                    animationType={'fade'}
                     headerText={'Select tuning'}
                     pickerValues={this.generateTuningPickerValues()}
                     onValueSelected={this.onTuningSelected}
@@ -54,13 +55,15 @@ class Settings extends Component {
                     style={styles.tuningsSettingsStyle}
                     onPress={this.onTuningsPress}
                 >
-                    <Text style={styles.textStyle}>Tuning:</Text>
-                    <Text style={styles.textStyle}>{tuningToString(this.props.currentTuning)}</Text>
+                    <Text style={[styles.textStyle, {color: '#414141'}]}>Tuning:</Text>
+                    <Text style={[styles.textStyle, {color : '#cbb20c'}]}>{tuningToString(this.props.currentTuning)}</Text>
                 </TouchableOpacity>
             </View>
         );
     }
 }
+
+//'#bfa60c'
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ selectTuning }, dispatch);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import {screens, screensNames} from "../../navigation/screens";
-import Settings from '../../components/Settings';
+import Settings from '../../containers/Settings';
 import styles from './styles';
 
 export class SettingsScreen extends Component {
