@@ -1,1 +1,5 @@
-export * as buttons from './buttons';
+import * as CommonButtons from './buttons';
+
+export {
+    CommonButtons
+}

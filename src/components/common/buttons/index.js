@@ -1,3 +1,3 @@
-import ScalingButton from "./ScailingButton/ScalingButton";
+import ScalingButton from "./ScailingButton";
 
 export { ScalingButton };

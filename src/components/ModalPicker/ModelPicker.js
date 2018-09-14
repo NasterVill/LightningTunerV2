@@ -1,83 +1,109 @@
 import React, { Component } from 'react';
-import { Modal, Text, View, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Modal, Text, View, FlatList , TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { CommonButtons } from "../common";
 
-const ModalPicker = (props) => {
-    const {
-        visible=false,
-        animationType = 'slide',
-        transparent=false,
-        headerText,
-        pickerValues,
-        onValueSelected,
-        onDismissPicker
-    } = props;
+class ModalPicker extends Component {
+    constructor(props) {
+        super(props);
+    }
 
-    return (
-        <Modal
-            visible={visible}
-            animationType={animationType}
-            transparent={transparent}
-            onRequestClose={onDismissPicker}
-        >
-            <TouchableOpacity
-                style={{
-                    width: '100%',
-                    height: '100%',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: '#00000070',
-                }}
-                onPress={onDismissPicker}
+    renderItem = ({ item: { title, value } }) => {
+        return (
+            <CommonButtons.ScalingButton
+                noDefaultStyles={true}
+                onPress={() => this.props.onValueSelected(value)}
             >
-                <TouchableWithoutFeedback>
-                    <View style={
-                        {
-                            margin: 20, padding: 20,
-                            backgroundColor: '#efefef',
-                            alignItems: 'flex-start',
-                            borderWidth: 1,
-                            borderRadius: 2,
-                            borderColor: '#ddd',
-                            borderBottomWidth: 0,
-                            shadowColor: '#000',
-                            shadowOffset: { width: 0, height: 2 },
-                            shadowOpacity: 0.1,
-                            elevation: 1,
-                        }}
-                    >
-                        <Text style={{
-                            fontSize: 20,
-                            fontWeight: 'bold',
-                            alignSelf: 'center',
-                            color: '#cbb20c'
+                <Text style={{fontSize: 18, alignSelf: 'flex-start' }}>{title}</Text>
+            </CommonButtons.ScalingButton>
+        );
+    };
+
+    renderSeparator = () => {
+        return (
+            <View
+                style={{
+                    height: 1,
+                    width: "100%",
+                    backgroundColor: "#cbb20c",
+                    marginVertical: 8
+                }}
+            />
+        );
+    };
+
+    render() {
+        const {
+            visible = false,
+            animationType = 'slide',
+            transparent = false,
+            headerText,
+            pickerValues,
+            onDismissPicker
+        } = this.props;
+
+        return (
+            <Modal
+                visible={visible}
+                animationType={animationType}
+                transparent={transparent}
+                onRequestClose={onDismissPicker}
+            >
+                <TouchableOpacity
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        backgroundColor: '#00000070',
+                    }}
+                    onPress={onDismissPicker}
+                >
+                    <TouchableWithoutFeedback>
+                        <View style={
+                            {
+                                margin: 20, padding: 20,
+                                backgroundColor: '#efefef',
+                                alignItems: 'flex-start',
+                                borderWidth: 1,
+                                borderRadius: 2,
+                                borderColor: '#ddd',
+                                borderBottomWidth: 0,
+                                shadowColor: '#000',
+                                shadowOffset: {width: 0, height: 2},
+                                shadowOpacity: 0.1,
+                                elevation: 1,
+                                height: '50%',
                             }}
                         >
-                            {headerText}
+                            <Text style={{
+                                fontSize: 20,
+                                fontWeight: 'bold',
+                                alignSelf: 'center',
+                                color: '#cbb20c',
+                                paddingBottom: 10
+                            }}
+                            >
+                                {headerText}
                             </Text>
-                        {
-                            pickerValues.map((value, index) => {
-                                return (
-                                    <TouchableOpacity
-                                        key={index}
-                                        onPress={() => onValueSelected(value.value)}
-                                        style={{ paddingTop: 4, paddingBottom: 4 }}
-                                    >
-                                        <Text style={{fontSize: 18}}>{ value.title }</Text>
-                                    </TouchableOpacity>
-                                );
-                            })
-                        }
-                        <TouchableOpacity
-                            onPress={onDismissPicker}
-                            style={{ paddingTop: 4, alignSelf: 'center' }}
-                        >
-                            <Text style={{ color: '#cbb20c', fontSize: 18, opacity: 0.8 }}>Cancel</Text>
-                        </TouchableOpacity>
-                    </View>
-                </TouchableWithoutFeedback>
-            </TouchableOpacity>
-        </Modal>
-    );
-};
+                            <FlatList
+                                data={pickerValues}
+                                renderItem={this.renderItem}
+                                keyExtractor={({title}) => title}
+                                ItemSeparatorComponent={this.renderSeparator}
+                            >
+                            </FlatList>
+                            <TouchableOpacity
+                                onPress={onDismissPicker}
+                                style={{paddingTop: 10, alignSelf: 'center'}}
+                            >
+                                <Text style={{color: '#cbb20c', fontSize: 18, opacity: 0.8}}>Go back</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </TouchableWithoutFeedback>
+                </TouchableOpacity>
+            </Modal>
+        );
+    }
+}
 
 export default ModalPicker;

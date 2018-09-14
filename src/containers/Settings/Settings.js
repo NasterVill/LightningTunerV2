@@ -27,7 +27,7 @@ class Settings extends Component {
 
     onTuningSelected = (tuning) => {
         this.props.selectTuning(tuning);
-        this.onDismissTuningSelection();
+        //this.onDismissTuningSelection();
     };
 
     generateTuningPickerValues() {

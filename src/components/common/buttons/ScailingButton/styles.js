@@ -1,11 +1,11 @@
 import {StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
-    default_button: {
+    defaultButton: {
         alignItems: 'center',
         justifyContent: 'center'
     },
-    button: {
+    presetButton: {
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20,
