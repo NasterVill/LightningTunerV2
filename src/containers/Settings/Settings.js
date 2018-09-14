@@ -33,6 +33,7 @@ class Settings extends Component {
     generateTuningPickerValues() {
         return Object.values(this.props.tunings).map((tuning) => {
            return {
+               id: tuning.name,
                title: tuningToString(tuning),
                value: tuning
            }
@@ -48,6 +49,9 @@ class Settings extends Component {
                     animationType={'fade'}
                     headerText={'Select tuning'}
                     pickerValues={this.generateTuningPickerValues()}
+                    selectedValueId={this.props.currentTuning.name}
+                    selectedValueColor="#dec50c"
+                    separatorColor='#cbb20c'
                     onValueSelected={this.onTuningSelected}
                     onDismissPicker={this.onDismissTuningSelection}
                 />

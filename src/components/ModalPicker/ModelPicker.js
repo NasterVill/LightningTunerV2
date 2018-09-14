@@ -7,13 +7,21 @@ class ModalPicker extends Component {
         super(props);
     }
 
-    renderItem = ({ item: { title, value } }) => {
+    renderItem = ({ item: { id, title, value } }) => {
+        const { selectedValueId, selectedValueColor, onValueSelected } = this.props;
+
         return (
             <CommonButtons.ScalingButton
                 noDefaultStyles={true}
-                onPress={() => this.props.onValueSelected(value)}
+                onPress={() => onValueSelected(value)}
             >
-                <Text style={{fontSize: 18, alignSelf: 'flex-start' }}>{title}</Text>
+                <Text style={{fontSize: 18,
+                    alignSelf: 'flex-start',
+                    color: id === selectedValueId ? selectedValueColor : '#343434'
+                }}
+                >
+                    {title}
+                </Text>
             </CommonButtons.ScalingButton>
         );
     };
@@ -24,7 +32,7 @@ class ModalPicker extends Component {
                 style={{
                     height: 1,
                     width: "100%",
-                    backgroundColor: "#cbb20c",
+                    backgroundColor: this.props.separatorColor,
                     marginVertical: 8
                 }}
             />

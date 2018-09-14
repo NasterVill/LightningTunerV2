@@ -16,21 +16,20 @@ class ScalingButton extends Component {
         }
     }
 
-    scale = () => {
+    scale = (callback) => {
         this.state.scaleValue.setValue(0);
         Animated.timing(
             this.state.scaleValue,
             {
                 toValue: 1,
-                duration: 500,
+                duration: 300,
                 easing: Easing.easeOutBack
             }
-        ).start();
+        ).start(callback);
     };
 
     onPress = () => {
-        this.scale();
-        this.props.onPress();
+        this.scale(this.props.onPress);
     };
 
     getContent() {
