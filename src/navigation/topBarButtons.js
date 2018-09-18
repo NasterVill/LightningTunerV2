@@ -6,12 +6,10 @@ export const buttonsNames = {
 };
 
 export const getTopBarButtons = () => {
-    console.log(imagesStore);
-
     return {
         [buttonsNames.SettingsButton]: {
             id: buttonsNames.SettingsButton,
-            icon: imagesStore.getImageSrc(imagesData.COGS_TOP_BAR_WHITE)
+            icon: imagesStore.getImageSrc(imagesData.COGS_TOP_BAR_WHITE.id)
         }
     }
 };
