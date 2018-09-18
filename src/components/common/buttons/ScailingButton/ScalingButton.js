@@ -40,7 +40,6 @@ class ScalingButton extends Component {
     }
 
     render() {
-        // 1.1 was changed to 0.9
         const buttonScale = this.state.scaleValue.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [1, 0.8, 1]

@@ -93,6 +93,8 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -142,8 +144,10 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-vector-icons')
     compile project(':react-native-audio-processing')
     compile project(':react-native-svg')
+    compile project(':react-native-vector-icons')
     implementation project(':react-native-audio-processing')
     implementation project(':react-native-svg')
     implementation fileTree(dir: "libs", include: ["*.jar"])

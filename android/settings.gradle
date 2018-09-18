@@ -1,8 +1,6 @@
 rootProject.name = 'LightningTuner'
-include ':react-native-audio-processing'
-project(':react-native-audio-processing').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-audio-processing/android')
-include ':react-native-svg'
-project(':react-native-svg').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-svg/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
 include ':react-native-audio-processing'
 project(':react-native-audio-processing').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-audio-processing/android')
 include ':react-native-svg'

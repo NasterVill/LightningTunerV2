@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Navigation } from "react-native-navigation";
 import Tuner from '../../containers/Tuner/index'
 import { screens, screensNames } from "../../../src/navigation/screens";
-import { topBarButtons, buttonsNames } from "../../navigation/topBarButtons";
+import { getTopBarButtons, buttonsNames } from "../../navigation/topBarButtons";
 import { pushScreen } from "../../navigation/NavigationWrappers";
 import styles from './styles';
 
@@ -17,7 +17,7 @@ export class TuningScreen extends Component {
                 rightButtons: [
                     {
                         id: buttonsNames.SettingsButton,
-                        icon: topBarButtons[buttonsNames.SettingsButton].icon
+                        icon: getTopBarButtons()[buttonsNames.SettingsButton].icon
                     }
                 ]
             }
@@ -30,7 +30,7 @@ export class TuningScreen extends Component {
     }
 
     navigationButtonPressed({ buttonId }) {
-        if(buttonId === topBarButtons[buttonsNames.SettingsButton].id) {
+        if(buttonId === getTopBarButtons()[buttonsNames.SettingsButton].id) {
             pushScreen(screens[screensNames.SettingsScreen]);
         }
     }

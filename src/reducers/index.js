@@ -4,5 +4,5 @@ import TuningsReducer from './TuningsReducer';
 
 export default combineReducers({
     tunings: TuningsReducer,
-    currentTuning: CurrentTuningReducer,
+    currentTuning: CurrentTuningReducer
 });
