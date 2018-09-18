@@ -67,8 +67,6 @@ class Settings extends Component {
     }
 }
 
-//'#bfa60c'
-
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ selectTuning }, dispatch);
 };

@@ -1,25 +1,21 @@
 import { imagesData } from "./imagesData";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 class ImagesStore {
     constructor() {
         this.images = {};
     }
 
-    initStore = async () => {
+    async initStore() {
         for (let imageData in imagesData) {
+            this.images[imageData] = await Icon.getImageSource(
+                imagesData[imageData].name, imagesData[imageData].size, imagesData[imageData].color);
+
             console.log(imageData);
-            try {
-                this.images[imageData] = await Icon.getImageSource(
-                    imagesData[imageData].name, imagesData[imageData].size, imagesData[imageData].color);
-                console.log(imagesData[imageData]);
-                console.log(this.images);
-            }
-            catch (error) {
-                console.log(error);
-            }
+            console.log(imagesData[imageData]);
+            console.log(this.images);
         }
-    };
+    }
 
     getImageSrc(name) {
         return this.images[name];

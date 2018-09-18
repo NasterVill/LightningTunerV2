@@ -11,7 +11,7 @@ export const getTopBarButtons = () => {
     return {
         [buttonsNames.SettingsButton]: {
             id: buttonsNames.SettingsButton,
-            icon: imagesStore[imagesData.COGS_TOP_BAR_WHITE]
+            icon: imagesStore.getImageSrc(imagesData.COGS_TOP_BAR_WHITE)
         }
     }
 };
