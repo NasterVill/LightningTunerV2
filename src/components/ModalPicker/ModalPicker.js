@@ -46,7 +46,9 @@ class ModalPicker extends Component {
             transparent = false,
             headerText,
             pickerValues,
-            onDismissPicker
+            onDismissPicker,
+            width,
+            height
         } = this.props;
 
         return (
