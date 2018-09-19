@@ -3,7 +3,7 @@ import { TuningScreen, SettingsScreen } from "../../src/screens";
 export const screensNames = {
     TuningScreen: 'TuningScreen',
     SettingsScreen: 'SettingsScreen',
-}
+};
 
 export const screens = {
     [screensNames.TuningScreen]: {

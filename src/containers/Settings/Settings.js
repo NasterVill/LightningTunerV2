@@ -7,7 +7,6 @@ import { selectTuning } from "../../actions/tuningactions/index";
 import { bindActionCreators } from 'redux'
 import styles from './styles';
 
-
 class Settings extends Component {
     constructor(props){
         super(props);

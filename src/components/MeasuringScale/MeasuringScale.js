@@ -101,5 +101,5 @@ export class MeasuringScale extends Component {
     onLayout = event => {
         let {width, height} = event.nativeEvent.layout;
         this.setState({ dimensions: { width, height } });
-    }
+    };
 }

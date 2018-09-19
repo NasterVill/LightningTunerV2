@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
-import { Modal, Text, View, FlatList , TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import {Modal, Text, View, FlatList, TouchableOpacity, TouchableWithoutFeedback, Dimensions} from 'react-native';
 import { CommonButtons } from "../common";
+import { layouts} from "./constants";
 
 class ModalPicker extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            layouts: this.getLayout()
+        };
+
+        Dimensions.addEventListener('change', this.orientationListener);
     }
+
+    orientationListener = () => this.setState({ layout :this.getLayout() });
+
+    getLayout = () => {
+        let { height, width } = Dimensions.get('window');
+        return (height >= width) ? layouts.horizontal : layouts.vertical
+    };
 
     renderItem = ({ item: { id, title, value } }) => {
         const { selectedValueId, selectedValueColor, onValueSelected } = this.props;
@@ -47,9 +61,11 @@ class ModalPicker extends Component {
             headerText,
             pickerValues,
             onDismissPicker,
-            width,
-            height
         } = this.props;
+
+        let pickerHeight = (this.state.layout === layouts.vertical) ? '90%' : '45%';
+
+        //2BEB26 - success color
 
         return (
             <Modal
@@ -71,18 +87,11 @@ class ModalPicker extends Component {
                     <TouchableWithoutFeedback>
                         <View style={
                             {
-                                margin: 20, padding: 20,
+                                margin: 20,
+                                padding: 20,
                                 backgroundColor: '#efefef',
                                 alignItems: 'flex-start',
-                                borderWidth: 1,
-                                borderRadius: 2,
-                                borderColor: '#ddd',
-                                borderBottomWidth: 0,
-                                shadowColor: '#000',
-                                shadowOffset: {width: 0, height: 2},
-                                shadowOpacity: 0.1,
-                                elevation: 1,
-                                height: '50%',
+                                height: pickerHeight,
                             }}
                         >
                             <Text style={{
@@ -114,6 +123,27 @@ class ModalPicker extends Component {
             </Modal>
         );
     }
+
+    componentWillUnmount() {
+        Dimensions.removeEventListener('change', this.orientationListener);
+    }
 }
 
 export default ModalPicker;
+
+
+/*
+margin: 20,
+padding: 20,
+backgroundColor: '#efefef',
+alignItems: 'flex-start',
+alignSelf: 'center',
+borderWidth: 1,
+borderRadius: 2,
+borderColor: '#ddd',
+borderBottomWidth: 0,
+shadowColor: '#000',
+shadowOffset: {width: 0, height: 2},
+shadowOpacity: 0.1,
+elevation: 1
+*/

@@ -1,10 +1,8 @@
 import { imagesData } from "./imagesData";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-class ImagesStore {
-    constructor() {
-        this.images = {};
-    }
+export const imagesStore = {
+    images: {},
 
     async initStore() {
         return await Promise.all(
@@ -14,11 +12,9 @@ class ImagesStore {
                     .then(source => this.images[imageId] = source);
             })
         );
-    }
+    },
 
     getImageSrc(id) {
         return this.images[id];
     }
-}
-
-export const imagesStore = new ImagesStore();
+};

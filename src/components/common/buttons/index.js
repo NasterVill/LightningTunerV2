@@ -1,3 +1,3 @@
 import ScalingButton from "./ScailingButton";
 
-export { ScalingButton };
+export {ScalingButton};
