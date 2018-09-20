@@ -7,7 +7,6 @@ export const imagesStore = {
     async initStore() {
         return await Promise.all(
             Object.entries(imagesData).map(([imageId, imageData]) => {
-                console.log(imageId, imageData);
                 return Icon.getImageSource(imageData.name, imageData.size, imageData.color)
                     .then(source => this.images[imageId] = source);
             })
@@ -16,5 +15,6 @@ export const imagesStore = {
 
     getImageSrc(id) {
         return this.images[id];
+        
     }
 };

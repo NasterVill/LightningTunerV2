@@ -65,8 +65,6 @@ class ModalPicker extends Component {
 
         let pickerHeight = (this.state.layout === layouts.vertical) ? '90%' : '50%';
 
-        //2BEB26 - success color
-
         return (
             <Modal
                 visible={visible}

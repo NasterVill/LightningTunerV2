@@ -1,5 +1,4 @@
 import React from 'react';
-import { Platform } from 'react-native';
 import { Navigation } from "react-native-navigation";
 import { STACK_ID } from './src/navigation/constants';
 import { screens, screensNames } from "./src/navigation/screens";
