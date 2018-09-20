@@ -63,7 +63,7 @@ class ModalPicker extends Component {
             onDismissPicker,
         } = this.props;
 
-        let pickerHeight = (this.state.layout === layouts.vertical) ? '90%' : '45%';
+        let pickerHeight = (this.state.layout === layouts.vertical) ? '90%' : '50%';
 
         //2BEB26 - success color
 

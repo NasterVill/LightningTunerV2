@@ -1,4 +1,5 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { Navigation } from "react-native-navigation";
 import { STACK_ID } from './src/navigation/constants';
 import { screens, screensNames } from "./src/navigation/screens";
@@ -31,6 +32,7 @@ Navigation.events().registerAppLaunchedListener(() => {
 
 export default class App {
     constructor() {
+        this.setAppRoot();
         imagesStore.initStore()
             .then(this.setAppRoot)
             .catch(console.error);
@@ -48,7 +50,7 @@ export default class App {
                             }
                         }
                     ],
-                }
+                },
             }
         });
     }

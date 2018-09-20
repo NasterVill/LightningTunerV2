@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
-import { DeviceEventEmitter, View, Text } from 'react-native';
+import { DeviceEventEmitter, View, Text, Dimensions } from 'react-native';
 import Permissions from 'react-native-permissions';
 import { connect } from 'react-redux';
 import RNAudioProcessor from 'react-native-audio-processing';
 import { getFrequency } from "../../musicdata/index";
 import Tuning from '../../components/Tuning/index';
 import { MeasuringScale, UNIT_INTERVALS_AMOUNT } from '../../components/MeasuringScale/index';
+import { imagesData } from "../../imagestore";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import { styles } from './styles';
 import _ from 'lodash';
+import { Animations } from '../../components/common';
 
+const ALLOWED_DIFFERENCE = 5;
 const FREQ_PRECISION = 100;
 const DELAY = 400;
 
@@ -38,8 +42,11 @@ class Tuner extends Component {
         return Math.log(value) / Math.log(2);
     }
 
-    computePos(baseFrequency, currentFrequency) {
-        const cents = currentFrequency > 0 ? (1200 * this.log2(currentFrequency / baseFrequency)) : 0;
+    computeCents(baseFrequency, currentFrequency) {
+        return currentFrequency > 0 ? (1200 * this.log2(currentFrequency / baseFrequency)) : 0;
+    }
+
+    computePos(cents) {
         let pos = cents / 2 + (UNIT_INTERVALS_AMOUNT / 2);
 
         if (pos > 100) pos = 100;
@@ -76,7 +83,9 @@ class Tuner extends Component {
 
         const closestNote = currentTuning.notes[this.getClosestNoteIndex()];
         const closestFrequency = Math.round(getFrequency(closestNote) * FREQ_PRECISION) / FREQ_PRECISION;
-        const pos = this.computePos(closestFrequency, frequency);
+        const cents = this.computeCents(closestFrequency, frequency);
+        const pos = this.computePos(cents);
+        const success = (cents > -ALLOWED_DIFFERENCE && cents < ALLOWED_DIFFERENCE && frequency !== 0);
 
         return (
             <View style={[{flex: 1, alignSelf: 'stretch'}, style]}>
@@ -94,12 +103,24 @@ class Tuner extends Component {
                     toPos={pos}
                 />
                 <Text style={textStyle}>{frequency} Hz</Text>
+                <Animations.Fade visible={success} style={{
+                    position: 'absolute',
+                    alignSelf: 'center',
+                    top: '30%',
+                }}>
+                    <Icon
+                        name={imagesData.SUCCESS_TUNING.name}
+                        size={imagesData.SUCCESS_TUNING.size}
+                        color={imagesData.SUCCESS_TUNING.color}
+                    />
+                </Animations.Fade>
             </View>
         );
     }
 
     componentWillUnmount() {
         RNAudioProcessor.stop();
+        DeviceEventEmitter.removeAllListeners(RNAudioProcessor.FREQUENCY_DETECTED_EVENT_NAME);
     }
 }
 

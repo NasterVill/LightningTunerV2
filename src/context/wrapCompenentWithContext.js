@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 
 export const wrapComponentWithContext = (Component) =>
     class extends PureComponent {
-        static options () {
+        static options (passProps) {
             if (typeof Component.options === 'function') {
-                return Component.options();
+                return Component.options(passProps);
             }
         }
 
