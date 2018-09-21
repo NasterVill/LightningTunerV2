@@ -57,7 +57,7 @@ export default class MeasuringArc extends Component {
 
 	    return (
 	        <Line
-                key={angle}
+                key={angle + strokeWidth}
                 x1={x1}
                 y1={y1}
                 x2={x2}

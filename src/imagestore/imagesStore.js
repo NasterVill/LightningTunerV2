@@ -15,6 +15,5 @@ export const imagesStore = {
 
     getImageSrc(id) {
         return this.images[id];
-        
     }
 };

@@ -1,36 +1,41 @@
 import { StyleSheet } from 'react-native';
-import { MARGIN_BOTTOM } from "../constants";
+import { MARGIN_BOTTOM_RATIO } from "../constants";
 
 const generateStyles = (width, height, radius, angle) => {
     angle = angle / 180 * Math.PI;
 
     const horizontalOffset = width / 2 - height * Math.cos(angle);
-    const topOffsetSides = height - radius * Math.sin(angle) - MARGIN_BOTTOM;
-    const topOffsetCentral = height - radius - MARGIN_BOTTOM;
+    const bottomOffsetSides = radius * Math.sin(angle) + MARGIN_BOTTOM_RATIO * height;
+    const bottomOffsetCentral = radius + MARGIN_BOTTOM_RATIO * height;
     const rotationAngle = Math.PI / 2 - angle;
 
     return StyleSheet.create({
         containerStyle: {
-
+            position: 'absolute',
+            width: width,
+            height: height,
+            top: 0
         },
         leftTextStyle: {
             color: 'black',
             position: 'absolute',
             left: horizontalOffset,
-            top: topOffsetSides,
-            transform: [{ rotate: `${-rotationAngle}rad`}]
+            bottom: bottomOffsetSides,
+            transform: [{ rotate: `${-rotationAngle}rad`}],
         },
         centralTextStyle: {
             color: 'black',
+            position: 'absolute',
             alignSelf: 'center',
-            top: topOffsetCentral
+            bottom: bottomOffsetCentral,
+            overflow: 'visible'
         },
         rightTextStyle: {
             color: 'black',
             position: 'absolute',
             right: horizontalOffset,
-            top: topOffsetSides,
-            transform: [{ rotate: `${rotationAngle}rad`}]
+            bottom: bottomOffsetSides,
+            transform: [{ rotate: `${rotationAngle}rad`}],
         }
     });
 };

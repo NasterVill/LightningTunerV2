@@ -3,6 +3,7 @@ package com.lightningtuner;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.entria.views.RNViewOverflowPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactlibrary.RNAudioProcessingPackage;
 import com.horcrux.svg.SvgPackage;
@@ -17,6 +18,7 @@ import com.reactnativenavigation.react.ReactGateway;
 
 import com.horcrux.svg.SvgPackage;
 import com.reactlibrary.RNAudioProcessingPackage;
+import com.entria.views.RNViewOverflowPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -44,7 +46,8 @@ public class MainApplication extends NavigationApplication  {
         return Arrays.<ReactPackage>asList(
             new SvgPackage(),
             new RNAudioProcessingPackage(),
-            new VectorIconsPackage()
+            new VectorIconsPackage(),
+            new RNViewOverflowPackage()
         );
     }
 

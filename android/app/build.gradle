@@ -144,6 +144,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-view-overflow')
     compile project(':react-native-vector-icons')
     compile project(':react-native-audio-processing')
     compile project(':react-native-svg')
