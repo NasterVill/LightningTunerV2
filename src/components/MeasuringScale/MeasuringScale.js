@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Svg, Circle, Line } from 'react-native-svg';
+import { Svg, Circle } from 'react-native-svg';
 import { View } from 'react-native';
 import MeasuringArc from './MeasuringArc';
 import Needle from './Needle';
@@ -87,10 +87,12 @@ export class MeasuringScale extends Component {
                                     stroke="black"
                                 />
                             </Svg>
-                            <LightningSvg
+                            <Needle
                                 height={this.computeSvgDrawRadius()}
                                 width={this.state.dimensions.width}
-                                style={{ position: 'absolute', top: (1 - SVG_HEIGHT_RATIO) * this.state.dimensions.height}}
+                                startAngle={this.computeStartAngle()}
+                                style={{ position: 'absolute', top: (1 - SVG_HEIGHT_RATIO) * this.state.dimensions.height }}
+                                toPos={toPos}
                             />
                         </View>
                         : undefined
@@ -105,16 +107,3 @@ export class MeasuringScale extends Component {
         this.setState({ dimensions: { width, height } });
     };
 }
-
-//style={{backgroundColor: 'blue'}}
-
-/*
- <Needle
-                                    cx={this.computeCx()}
-                                    cy={this.computeCy()}
-                                    length={this.computeSvgDrawRadius()}
-                                    width={this.state.dimensions.width}
-                                    startAngle={this.computeStartAngle()}
-                                    toPos={toPos}
-                                />
- */

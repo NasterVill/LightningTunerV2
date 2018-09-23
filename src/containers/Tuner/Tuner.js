@@ -103,7 +103,9 @@ class Tuner extends Component {
                     toPos={pos}
                 />
                 <Text style={textStyle}>{frequency} Hz</Text>
-                <Animations.Fade visible={success} style={{
+                <Animations.Fade
+                    visible={success}
+                    style={{
                     position: 'absolute',
                     alignSelf: 'center',
                     top: '30%',
