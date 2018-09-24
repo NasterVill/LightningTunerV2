@@ -20,15 +20,17 @@ export default class Needle extends Component {
             const step = ((180 - 2 * startAngle) / MAX_STEPS);
             const angle = step * (toPos.value - MAX_STEPS / 2);
 
-            this._animatedView.setNativeProps({
-                style: {
-                    transform: [
-                        { translateY: height/2 },
-                        { rotate: `${angle}deg` },
-                        { translateY: -height/2 },
-                    ]
-                }
-            });
+            if(this._animatedView != null) {
+                this._animatedView.setNativeProps({
+                    style: {
+                        transform: [
+                            {translateY: height / 2},
+                            {rotate: `${angle}deg`},
+                            {translateY: -height / 2},
+                        ]
+                    }
+                });
+            }
         });
     }
 
@@ -54,7 +56,6 @@ export default class Needle extends Component {
 
     render() {
         const { style, width, height } = this.props;
-        console.log("needle render", width, height);
 
         return (
             <Animated.View
