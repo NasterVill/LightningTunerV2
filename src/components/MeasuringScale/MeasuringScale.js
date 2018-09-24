@@ -39,10 +39,8 @@ export class MeasuringScale extends Component {
     computeSvgDrawRadius() {
 	    return this.state.dimensions.height * (SVG_HEIGHT_RATIO - MARGIN_BOTTOM_RATIO);
     }
-	
-	render() {
-        debugger;
 
+	render() {
 	    let { toPos, divisionAmount } = this.props;
 	    let { leftLabel, centralLabel, rightLabel } = this.props;
 
