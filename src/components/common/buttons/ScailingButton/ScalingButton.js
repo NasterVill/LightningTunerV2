@@ -16,20 +16,27 @@ class ScalingButton extends Component {
         }
     }
 
-    scale = (callback) => {
+    onPressIn = () => {
         this.state.scaleValue.setValue(0);
         Animated.timing(
             this.state.scaleValue,
             {
-                toValue: 1,
-                duration: 300,
-                easing: Easing.easeOutBack
+                toValue: 0.5,
+                duration: 250,
+                easing: Easing.in(Easing.ease)
             }
-        ).start(callback);
+        ).start();
     };
 
-    onPress = () => {
-        this.scale(this.props.onPress);
+    onPressOut = () => {
+        Animated.timing(
+            this.state.scaleValue,
+            {
+                toValue: 1,
+                duration: 250,
+                easing: Easing.out(Easing.ease)
+            }
+        ).start(this.props.onPress);
     };
 
     getContent() {
@@ -42,11 +49,11 @@ class ScalingButton extends Component {
     render() {
         const buttonScale = this.state.scaleValue.interpolate({
             inputRange: [0, 0.5, 1],
-            outputRange: [1, 0.8, 1]
+            outputRange: [1, 0.9, 1]
         });
 
         return (
-            <TouchableWithoutFeedback onPress={this.onPress}>
+            <TouchableWithoutFeedback onPressIn={this.onPressIn} onPressOut={this.onPressOut}>
                 <Animated.View style={[
                     this.props.noDefaultStyles ? styles.defaultButton : styles.presetButton,
                     this.props.styles ? this.props.styles.button : '',

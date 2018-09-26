@@ -11,14 +11,11 @@ export const styles = StyleSheet.create({
         paddingBottom: 15,
         color: 'black',
         flex: 2,
-        //backgroundColor: 'red'
     },
     tuningStyle: {
         flex: 1,
-        //backgroundColor: 'green'
     },
     tunerViewStyle: {
         flex: 9,
-        //backgroundColor: 'blue'
     }
 });

@@ -128,20 +128,3 @@ class ModalPicker extends Component {
 }
 
 export default ModalPicker;
-
-
-/*
-margin: 20,
-padding: 20,
-backgroundColor: '#efefef',
-alignItems: 'flex-start',
-alignSelf: 'center',
-borderWidth: 1,
-borderRadius: 2,
-borderColor: '#ddd',
-borderBottomWidth: 0,
-shadowColor: '#000',
-shadowOffset: {width: 0, height: 2},
-shadowOpacity: 0.1,
-elevation: 1
-*/
