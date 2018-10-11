@@ -5,7 +5,6 @@ import MeasuringArc from './MeasuringArc';
 import Needle from './Needle';
 import { styles } from './styles';
 import MeasuringDesignation from "./MeasuringDesignation";
-import LightningSvg from '../LightningSvg';
 
 import {
     MARGIN_BOTTOM_RATIO,

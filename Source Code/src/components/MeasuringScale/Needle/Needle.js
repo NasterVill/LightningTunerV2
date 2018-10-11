@@ -49,7 +49,8 @@ export default class Needle extends Component {
             this.state.currPos,
             {
                 toValue: toPos,
-                duration: ANIMATION_DURATION
+                duration: ANIMATION_DURATION,
+                useNativeDriver: true
             }
         ).start();
     }
