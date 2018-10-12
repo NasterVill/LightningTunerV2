@@ -22,10 +22,13 @@ Lightning Tuner - это мобильное приложение-тюнер, предоставляющее возможность пр
 Проект использует фреймфорк [React Native](https://facebook.github.io/react-native/) для мобильных приложений, с использованием нативных модулей.
 #### 2.2. Интерфейс пользователя <a name="2.2"></a>
 - Главный экран (экран настройки интсрумента)
+ 
   ![Tuning Sceen](https://github.com/NasterVill/LightningTunerV2/blob/master/Resources/Mockups/Tuning%20Screen.png)
 - Экран настроек
+ 
   ![Settings Screen](https://github.com/NasterVill/LightningTunerV2/blob/master/Resources/Mockups/Settings%20Screen.png)
-- Моадальное окно выбора строя
+- Модальное окно выбора строя
+ 
   ![Tunings Modal](https://github.com/NasterVill/LightningTunerV2/blob/master/Resources/Mockups/Tunings%20Modal.png)
 
 #### 2.3. Характеристики пользователей <a name="2.3"></a>
