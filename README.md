@@ -9,4 +9,4 @@ Lightning Tuner - это мобильное приложение-тюнер, п�
 
 
 ***
-### Diagrams([Ru](https://github.com/NasterVill/LightningTunerV2/tree/master/Documents))
+### Diagrams([Ru](https://github.com/NasterVill/LightningTunerV2/tree/master/Documents/Diagrams))
