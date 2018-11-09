@@ -8,7 +8,7 @@
 ![Распознание ноты](https://github.com/NasterVill/LightningTunerV2/blob/master/Documents/Diagrams/State/Note%20Recognition.png)
 
 ### 2. Смена текущего строя<a name="2"></a>
-![Смена текущего строя](https://github.com/NasterVill/LightningTunerV2/blob/master/Documents/Diagrams/State/Tuning%20Changey.png)
+![Смена текущего строя](https://github.com/NasterVill/LightningTunerV2/blob/master/Documents/Diagrams/State/Tuning%20Change.png)
   
 ### 3. Смена текущей конвенции именования нот<a name="3"></a>
 ![Смена текущей конвенции именования нот](https://github.com/NasterVill/LightningTunerV2/blob/master/Documents/Diagrams/State/Note%20Naming%20Change.png)
