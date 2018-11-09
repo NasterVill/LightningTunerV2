@@ -1,7 +1,7 @@
 ﻿# Варианты использования
 ---
 
-![Диаграмма Варианты использования](https://github.com/NasterVill/LightningTunerV2/blob/master/Documents/Diagrams/Use%20Case%20Diagram.PNG)
+![Диаграмма Варианты использования](https://github.com/NasterVill/LightningTunerV2/blob/master/Documents/Diagrams/Use%20Case/Use%20Case%20Diagram.PNG)
 
 # Содержание
 1 [Актёры](#1) <br>
