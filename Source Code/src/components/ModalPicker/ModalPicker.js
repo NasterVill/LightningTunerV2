@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Modal, Text, View, FlatList, TouchableOpacity, TouchableWithoutFeedback, Dimensions} from 'react-native';
+import { Modal, Text, View, FlatList, TouchableOpacity, TouchableWithoutFeedback, Dimensions } from 'react-native';
 import { CommonButtons } from "../common";
-import { layouts} from "./constants";
+import { layouts, CHANGE_EVENT } from "./constants";
 
 class ModalPicker extends Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class ModalPicker extends Component {
             layouts: this.getLayout()
         };
 
-        Dimensions.addEventListener('change', this.orientationListener);
+        Dimensions.addEventListener(CHANGE_EVENT, this.orientationListener);
     }
 
     orientationListener = () => this.setState({ layout :this.getLayout() });
