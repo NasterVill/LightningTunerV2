@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Navigation } from "react-native-navigation";
 import Tuner from '../../containers/Tuner/index'
-import { screens, screensNames } from "../../../src/navigation/screens";
+import { screens, screensNames } from '../../../src/navigation/screens';
 import { getTopBarButtons, buttonsNames } from "../../navigation/topBarButtons";
-import { pushScreen } from "../../navigation/NavigationWrappers";
+import { pushScreen } from '../../navigation/NavigationWrappers';
 import styles from './styles';
 
 export class TuningScreen extends Component {

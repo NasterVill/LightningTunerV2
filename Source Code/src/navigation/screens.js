@@ -1,4 +1,4 @@
-import { TuningScreen, SettingsScreen } from "../../src/screens";
+import { TuningScreen, SettingsScreen } from '../../src/screens';
 
 export const screensNames = {
     TuningScreen: 'TuningScreen',

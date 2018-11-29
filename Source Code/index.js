@@ -1,8 +1,8 @@
 import App from './App';
 import React from 'react';
 import { Navigation } from "react-native-navigation";
-import {createStore} from 'redux';
-import registerScreens from "./src/navigation/registerScreens";
+import { createStore } from 'redux';
+import registerScreens from './src/navigation/registerScreens';
 import rootReducer from './src/reducers'
 
 Navigation.events().registerAppLaunchedListener(() => {

@@ -1,2 +1,2 @@
 export { SettingsScreen } from './SettingsScreen';
-export { TuningScreen } from "./TuningScreen";
+export { TuningScreen } from './TuningScreen';

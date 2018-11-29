@@ -1,5 +1,5 @@
-import { getDefaultTunings } from "../musicdata";
-import { SELECT_TUNING } from "../actions/tuningactions";
+import { getDefaultTunings } from '../musicdata';
+import { SELECT_TUNING } from '../actions/tuningactions';
 
 const INITIAL_STATE = getDefaultTunings().STANDARD;
 

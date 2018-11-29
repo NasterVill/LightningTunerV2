@@ -1,3 +1,3 @@
-import Fade from "./Fade";
+import Fade from './Fade';
 
 export default Fade;

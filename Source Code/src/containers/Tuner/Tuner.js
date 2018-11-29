@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { DeviceEventEmitter, View, Text, Dimensions } from 'react-native';
+import { DeviceEventEmitter, View, Text } from 'react-native';
 import Permissions from 'react-native-permissions';
 import { connect } from 'react-redux';
 import RNAudioProcessor from 'react-native-audio-processing';
-import { getFrequency } from "../../musicdata/index";
+import { getFrequency } from '../../musicdata/index';
 import Tuning from '../../components/Tuning/index';
 import { MeasuringScale, UNIT_INTERVALS_AMOUNT } from '../../components/MeasuringScale/index';
-import { imagesData } from "../../imagestore";
+import { imagesData } from '../../imagestore';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { styles } from './styles';
 import _ from 'lodash';

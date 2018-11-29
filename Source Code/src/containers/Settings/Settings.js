@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import ModalPicker from '../../components/ModalPicker/index';
 import { tuningToString } from '../../musicdata/tunings';
-import { selectTuning } from "../../actions/tuningactions/index";
+import { selectTuning } from '../../actions/tuningactions/index';
 import { bindActionCreators } from 'redux'
 import styles from './styles';
 

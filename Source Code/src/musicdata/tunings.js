@@ -1,5 +1,5 @@
-import {notesMap} from "./notes";
-import {octaves} from "./octaves";
+import { notesMap } from './notes';
+import { octaves } from './octaves';
 
 export function tuningToString(tuning) {
     let { name, notes } = tuning;

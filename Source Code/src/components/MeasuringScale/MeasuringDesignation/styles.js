@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { MARGIN_BOTTOM_RATIO } from "../constants";
+import { MARGIN_BOTTOM_RATIO } from '../constants';
 
 const generateStyles = (width, height, radius, angle) => {
     angle = angle / 180 * Math.PI;

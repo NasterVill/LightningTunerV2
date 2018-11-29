@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import MeasuringArc from './MeasuringArc';
 import Needle from './Needle';
 import { styles } from './styles';
-import MeasuringDesignation from "./MeasuringDesignation";
+import MeasuringDesignation from './MeasuringDesignation';
 
 import {
     MARGIN_BOTTOM_RATIO,
@@ -12,6 +12,7 @@ import {
     SMALLER_CIRCLE_RADIUS,
     SVG_HEIGHT_RATIO
 } from './constants';
+
 
 export class MeasuringScale extends Component {
 	constructor(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { imagesData, imagesStore } from "../imagestore";
+import { imagesData, imagesStore } from '../imagestore';
 
 export const buttonsNames = {
     SettingsButton: 'SettingsButton'

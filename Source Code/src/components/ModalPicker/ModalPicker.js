@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Modal, Text, View, FlatList, TouchableOpacity, TouchableWithoutFeedback, Dimensions } from 'react-native';
-import { CommonButtons } from "../common";
-import { layouts, CHANGE_EVENT } from "./constants";
+import { CommonButtons } from '../common';
+import { layouts, CHANGE_EVENT } from './constants';
+import { styles } from './styles';
 
 class ModalPicker extends Component {
     constructor(props) {
@@ -43,12 +44,10 @@ class ModalPicker extends Component {
     renderSeparator = () => {
         return (
             <View
-                style={{
-                    height: 1,
-                    width: "100%",
-                    backgroundColor: this.props.separatorColor,
-                    marginVertical: 8
-                }}
+                style={[
+                    styles.separatorStyle,
+                    { backgroundColor: this.props.separatorColor }
+                ]}
             />
         );
     };
@@ -63,7 +62,7 @@ class ModalPicker extends Component {
             onDismissPicker,
         } = this.props;
 
-        let pickerHeight = (this.state.layout === layouts.vertical) ? '90%' : '50%';
+        const pickerHeight = (this.state.layout === layouts.vertical) ? '90%' : '50%';
 
         return (
             <Modal
@@ -73,32 +72,12 @@ class ModalPicker extends Component {
                 onRequestClose={onDismissPicker}
             >
                 <TouchableOpacity
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        backgroundColor: '#00000070',
-                    }}
+                    style={styles.containerStyle}
                     onPress={onDismissPicker}
                 >
                     <TouchableWithoutFeedback>
-                        <View style={
-                            {
-                                margin: 20,
-                                padding: 20,
-                                backgroundColor: '#efefef',
-                                alignItems: 'flex-start',
-                                height: pickerHeight,
-                            }}
-                        >
-                            <Text style={{
-                                fontSize: 20,
-                                fontWeight: 'bold',
-                                alignSelf: 'center',
-                                color: '#cbb20c',
-                                paddingBottom: 10
-                            }}
+                        <View style={[styles.modalStyle, { height: pickerHeight }]}>
+                            <Text style={styles.headerStyle}
                             >
                                 {headerText}
                             </Text>
@@ -113,7 +92,7 @@ class ModalPicker extends Component {
                                 onPress={onDismissPicker}
                                 style={{paddingTop: 10, alignSelf: 'center'}}
                             >
-                                <Text style={{color: '#cbb20c', fontSize: 18, opacity: 0.8}}>Go back</Text>
+                                <Text style={styles.backButtonStyle}>Go back</Text>
                             </TouchableOpacity>
                         </View>
                     </TouchableWithoutFeedback>

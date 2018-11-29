@@ -1,8 +1,8 @@
 import React from 'react';
-import { Navigation } from "react-native-navigation";
+import { Navigation } from 'react-native-navigation';
 import { STACK_ID } from './src/navigation/constants';
-import { screens, screensNames } from "./src/navigation/screens";
-import { imagesStore } from "./src/imagestore";
+import { screens, screensNames } from './src/navigation/screens';
+import { imagesStore } from './src/imagestore';
 
 export default class App {
     constructor() {

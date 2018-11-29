@@ -1,4 +1,4 @@
-import { imagesData } from "./imagesData";
+import { imagesData } from './imagesData';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export const imagesStore = {

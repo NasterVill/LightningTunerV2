@@ -23,7 +23,8 @@ class ScalingButton extends Component {
             {
                 toValue: 0.5,
                 duration: 250,
-                easing: Easing.in(Easing.ease)
+                easing: Easing.in(Easing.ease),
+                useNativeDriver: true
             }
         ).start();
     };
@@ -34,7 +35,8 @@ class ScalingButton extends Component {
             {
                 toValue: 1,
                 duration: 250,
-                easing: Easing.out(Easing.ease)
+                easing: Easing.out(Easing.ease),
+                useNativeDriver: true
             }
         ).start(this.props.onPress);
     };

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import {screens, screensNames} from "../../navigation/screens";
+import {screens, screensNames} from '../../navigation/screens';
 import Settings from '../../containers/Settings';
 import styles from './styles';
 

@@ -1,3 +1,3 @@
-import ModalPicker from "./ModalPicker";
+import ModalPicker from './ModalPicker';
 
 export default ModalPicker;

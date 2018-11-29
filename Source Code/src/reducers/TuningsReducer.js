@@ -1,4 +1,4 @@
-import { getDefaultTunings } from "../musicdata";
+import { getDefaultTunings } from '../musicdata';
 
 const INITIAL_STATE = getDefaultTunings();
 
