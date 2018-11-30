@@ -29,12 +29,19 @@ class Tuner extends Component {
         this.state = { frequency: 0 };
     }
 
-    setFrequency = _.throttle(({ frequency }) => this.setState({frequency}), DELAY);
+    cacheFrequency= 0;
+
+    onFrequencyDetected = ({ frequency }) =>  {
+        if (frequency !== 0) {
+            this.cacheFrequency = frequency;
+            this.setState({frequency});
+        }
+    };
 
     componentDidMount() {
         DeviceEventEmitter.addListener(
             RNAudioProcessor.FREQUENCY_DETECTED_EVENT_NAME,
-            this.setFrequency
+            this.onFrequencyDetected
         );
     }
 

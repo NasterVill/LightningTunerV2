@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Line, G } from 'react-native-svg';
 
 const SMALL_TICK_WIDTH = 2;
@@ -6,7 +6,7 @@ const BIG_TICK_WIDTH = 5;
 const BIG_TICK_LENGTH_RATIO = 0.08;
 const SMALL_TICK_LENGTH_RATIO = BIG_TICK_LENGTH_RATIO * 0.6;
 
-export default class MeasuringArc extends Component {
+export default class MeasuringArc extends PureComponent {
 	constructor(props) {
 		super(props);
 	}

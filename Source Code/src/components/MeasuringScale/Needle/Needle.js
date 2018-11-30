@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Animated } from 'react-native';
 import LightningSvg from '../../LightningSvg';
 
@@ -6,7 +6,7 @@ const MAX_STEPS = 100;
 const ANIMATION_DURATION = 400;
 const DEFAULT_POS = 50;
 
-export default class Needle extends Component {
+export default class Needle extends PureComponent {
     constructor(props) {
         super(props);
 

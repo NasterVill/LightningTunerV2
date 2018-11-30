@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Svg, Circle } from 'react-native-svg';
 import { View } from 'react-native';
 import MeasuringArc from './MeasuringArc';
@@ -14,7 +14,7 @@ import {
 } from './constants';
 
 
-export class MeasuringScale extends Component {
+export class MeasuringScale extends PureComponent {
 	constructor(props) {
         super(props);
 
