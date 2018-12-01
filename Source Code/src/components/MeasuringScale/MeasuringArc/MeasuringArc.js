@@ -48,7 +48,7 @@ export default class MeasuringArc extends PureComponent {
     }
 
     drawTick(angle, tickLength, radius, strokeWidth) {
-        const { cx, cy } = this.props;
+        const { cx, cy, color } = this.props;
 
         const x1 = cx - radius * Math.cos(angle);
         const y1 = cy - radius * Math.sin(angle);
@@ -62,7 +62,7 @@ export default class MeasuringArc extends PureComponent {
                 y1={y1}
                 x2={x2}
                 y2={y2}
-                stroke="black"
+                stroke={color}
                 strokeWidth={strokeWidth}
             />
         );

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import ModalPicker from '../../components/ModalPicker/index';
 import { tuningToString } from '../../musicdata/tunings';
 import { selectTuning } from '../../actions/tuningactions/index';
+import { changeTheme } from '../../actions/theme';
 import { bindActionCreators } from 'redux'
-import styles from './styles';
+import generateStyles from './styles';
+import { themes } from '../../context/themeContext';
 
 class Settings extends Component {
     constructor(props){
@@ -39,8 +41,10 @@ class Settings extends Component {
     }
 
     render() {
+        const styles = generateStyles(this.props.theme);
+
         return (
-            <View style={[{flex: 1, alignSelf: 'stretch'}, this.props.style]}>
+            <View style={[styles.containerStyle, this.props.style]}>
                 <ModalPicker
                     visible={this.state.tuningPickerVisibility}
                     transparent={true}
@@ -49,28 +53,37 @@ class Settings extends Component {
                     pickerValues={this.generateTuningPickerValues()}
                     selectedValueId={this.props.currentTuning.name}
                     selectedValueColor="#dec50c"
+                    backgroundColor={this.props.theme.primary}
+                    textColor={this.props.theme.secondaryText}
                     separatorColor='#cbb20c'
                     onValueSelected={this.onTuningSelected}
                     onDismissPicker={this.onDismissTuningSelection}
                 />
                 <TouchableOpacity
-                    style={styles.tuningsSettingsStyle}
+                    style={styles.tuningsSettingsElementStyle}
                     onPress={this.onTuningsPress}
                 >
-                    <Text style={[styles.textStyle, {color: '#414141'}]}>Tuning:</Text>
-                    <Text style={[styles.textStyle, {color : '#cbb20c'}]}>{tuningToString(this.props.currentTuning)}</Text>
+                    <Text style={[styles.textStyle]}>Tuning:</Text>
+                    <Text style={[styles.textStyle, {color : '#e8cd20'}]}>{tuningToString(this.props.currentTuning)}</Text>
                 </TouchableOpacity>
+                <View style={styles.tuningsSettingsElementStyle}>
+                    <Text style={styles.textStyle}>Dark theme</Text>
+                    <Switch
+                        value={this.props.theme.id === themes.dark.id}
+                        onValueChange={this.props.changeTheme}
+                    />
+                </View>
             </View>
         );
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ selectTuning }, dispatch);
+    return bindActionCreators({ selectTuning, changeTheme }, dispatch);
 };
 
-const mapStateToProps = ({ currentTuning, tunings }) => {
-    return  { currentTuning, tunings };
+const mapStateToProps = ({ currentTuning, tunings, theme }) => {
+    return  { currentTuning, tunings, theme };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

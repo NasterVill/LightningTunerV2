@@ -16,13 +16,13 @@ const LightningSvg = ({ svgRef, ...props }) => (
         {...props}
     >
         <Path
-            fill="#DEC50C"
-            stroke="#DEC50C"
+            fill="#e8cd20"
+            stroke="#F1D80F"
             strokeWidth={2.1}
             strokeMiterlimit={2.613}
             d="M.9 2009.7L300.9.1v1630l300-339.3-300 2009.6V1737.6z"
         />
     </Svg>
 );
-
+//"#DEC50C"
 export default LightningSvg;

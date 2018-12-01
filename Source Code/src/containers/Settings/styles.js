@@ -1,22 +1,25 @@
 import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
-    tuningsSettingsStyle: {
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        padding: 18,
-        borderWidth: 1,
-        borderColor: '#ddd',
-        borderBottomWidth: 0,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        elevation: 1,
-    },
-    textStyle: {
-        fontSize: 18,
-        fontWeight: '500'
-    }
-});
+const generateStyles = (theme) => {
+    return StyleSheet.create({
+        containerStyle: {
+            flex: 1,
+            alignSelf: 'stretch',
+            backgroundColor: theme.primary,
+        },
+        tuningsSettingsElementStyle: {
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            padding: 18,
+            borderColor: theme.secondary,
+            borderBottomWidth: 1,
+        },
+        textStyle: {
+            fontSize: 18,
+            fontWeight: '500',
+            color: theme.primaryText,
+        }
+    });
+};
 
-export default styles;
+export default generateStyles;

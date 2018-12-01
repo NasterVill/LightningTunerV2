@@ -8,9 +8,11 @@ import Tuning from '../../components/Tuning/index';
 import { MeasuringScale, UNIT_INTERVALS_AMOUNT } from '../../components/MeasuringScale/index';
 import { imagesData } from '../../imagestore';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { styles } from './styles';
-import _ from 'lodash';
+import generateStyles from './styles';
 import { Animations } from '../../components/common';
+import {bindActionCreators} from "redux";
+import {selectTuning} from "../../actions/tuningactions";
+import {changeTheme} from "../../actions/theme";
 
 const ALLOWED_DIFFERENCE = 5;
 const FREQ_PRECISION = 100;
@@ -81,7 +83,7 @@ class Tuner extends Component {
     }
 
     render() {
-        const { textStyle, tuningStyle, tunerViewStyle } = styles;
+        const { containerStyle, textStyle, tuningStyle, tunerViewStyle } = generateStyles(this.props.theme);
 
         let { currentTuning, style } = this.props;
 
@@ -95,7 +97,7 @@ class Tuner extends Component {
         const success = (cents > -ALLOWED_DIFFERENCE && cents < ALLOWED_DIFFERENCE && frequency !== 0);
 
         return (
-            <View style={[{flex: 1, alignSelf: 'stretch'}, style]}>
+            <View style={[containerStyle, style]}>
                 <Tuning
                     style={tuningStyle}
                     notes={currentTuning.notes}
@@ -103,6 +105,7 @@ class Tuner extends Component {
                 />
                 <MeasuringScale
                     style={tunerViewStyle}
+                    componentsColor={this.props.theme.viewComponentsColor}
                     divisionAmount={20}
                     leftLabel="-100c"
                     centralLabel={closestFrequency}
@@ -133,8 +136,8 @@ class Tuner extends Component {
     }
 }
 
-const mapStateToProps = ({ currentTuning }) => {
-    return  { currentTuning };
+const mapStateToProps = ({ currentTuning, theme }) => {
+    return  { currentTuning, theme };
 };
 
 export default connect(mapStateToProps)(Tuner);

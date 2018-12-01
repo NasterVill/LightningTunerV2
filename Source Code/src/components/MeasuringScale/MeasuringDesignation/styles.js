@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { MARGIN_BOTTOM_RATIO } from '../constants';
 
-const generateStyles = (width, height, radius, angle) => {
+const generateStyles = (width, height, radius, angle, color) => {
     angle = angle / 180 * Math.PI;
 
     const horizontalOffset = width / 2 - height * Math.cos(angle);
@@ -17,21 +17,21 @@ const generateStyles = (width, height, radius, angle) => {
             top: 0
         },
         leftTextStyle: {
-            color: 'black',
+            color,
             position: 'absolute',
             left: horizontalOffset,
             bottom: bottomOffsetSides,
             transform: [{ rotate: `${-rotationAngle}rad`}],
         },
         centralTextStyle: {
-            color: 'black',
+            color,
             position: 'absolute',
             alignSelf: 'center',
             bottom: bottomOffsetCentral,
             overflow: 'visible'
         },
         rightTextStyle: {
-            color: 'black',
+            color,
             position: 'absolute',
             right: horizontalOffset,
             bottom: bottomOffsetSides,

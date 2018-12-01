@@ -2,13 +2,24 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import generateStyles from './styles';
 
-const MeasuringDesignation = ({ width, height, radius, startAngle, rightLabel, centralLabel, leftLabel, style }) => {
+const MeasuringDesignation = (
+    {
+        width,
+        height,
+        radius,
+        startAngle,
+        rightLabel,
+        centralLabel,
+        leftLabel,
+        style,
+        color
+}) => {
     let {
         containerStyle,
         leftTextStyle,
         centralTextStyle,
-        rightTextStyle
-    } = generateStyles(width, height, radius, startAngle);
+        rightTextStyle,
+    } = generateStyles(width, height, radius, startAngle, color);
 
     return (
         <View style={[containerStyle, style]}>

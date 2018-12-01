@@ -21,19 +21,20 @@ export const styles = StyleSheet.create({
         borderTopLeftRadius: 20,
         borderBottomRightRadius: 20,
         borderBottomLeftRadius: 20,
-        backgroundColor: '#ffffff',
         alignItems: 'flex-start',
     },
     headerStyle: {
         fontSize: 20,
         fontWeight: 'bold',
         alignSelf: 'center',
-        color: '#f1d30d',
+        color: '#e8cd20',
         paddingBottom: 10
     },
     backButtonStyle: {
-        color: '#e3c80c',
+        color: '#e71e1e',
         fontSize: 18,
         opacity: 0.8
     },
 });
+
+// color: '#f1d30d',

@@ -17,7 +17,7 @@ export default class Tuning extends PureComponent {
                 note.octave.name === closestNote.octave.name) {
                 textStyleSpecific = {
                     fontSize: 26,
-                    color: '#dec50c',
+                    color: '#e8cd20',
                 };
             }
 

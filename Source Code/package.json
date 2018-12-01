@@ -14,6 +14,7 @@
     "react": "16.3.1",
     "react-native": "0.55.4",
     "react-native-audio-processing": "git+https://github.com/NasterVill/RNAudioProcessingModule.git",
+    "react-native-i18n": "^2.0.15",
     "react-native-navigation": "^2.0.2518",
     "react-native-svg": "^6.5.2",
     "react-native-svg-uri": "^1.2.3",

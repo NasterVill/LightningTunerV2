@@ -42,10 +42,10 @@ export class MeasuringScale extends PureComponent {
 
 	render() {
 	    let { toPos, divisionAmount } = this.props;
-	    let { leftLabel, centralLabel, rightLabel } = this.props;
+	    let { leftLabel, centralLabel, rightLabel, style, componentsColor } = this.props;
 
 		return (
-			<View style={[styles.containerStyle, this.props.style]}>
+			<View style={[styles.containerStyle, style]}>
 				<View style={{flex: 1, alignSelf: 'stretch'}} onLayout={this.onLayout}>
                     {
                         this.state.dimensions ?
@@ -58,6 +58,7 @@ export class MeasuringScale extends PureComponent {
                                 leftLabel={leftLabel}
                                 centralLabel={centralLabel}
                                 rightLabel={rightLabel}
+                                color={componentsColor}
                             />
                             <Svg
                                 height={this.state.dimensions.height}
@@ -69,12 +70,13 @@ export class MeasuringScale extends PureComponent {
                                     radius={this.computeSvgDrawRadius()}
                                     startAngle={this.computeStartAngle()}
                                     divisionAmount={divisionAmount}
+                                    color={componentsColor}
                                 />
                                 <Circle
                                     cx={this.computeCx()}
                                     cy={this.computeCy()}
                                     r={BIG_CIRCLE_RADIUS}
-                                    stroke="black"
+                                    stroke={componentsColor}
                                     strokeWidth="2"
                                     fill="none"
                                 />
@@ -82,7 +84,8 @@ export class MeasuringScale extends PureComponent {
                                     cx={this.computeCx()}
                                     cy={this.computeCy()}
                                     r={SMALLER_CIRCLE_RADIUS}
-                                    stroke="black"
+                                    stroke={componentsColor}
+                                    fill={componentsColor}
                                 />
                             </Svg>
                             <Needle

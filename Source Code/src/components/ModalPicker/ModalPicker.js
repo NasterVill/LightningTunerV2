@@ -32,7 +32,7 @@ class ModalPicker extends Component {
             >
                 <Text style={{fontSize: 18,
                     alignSelf: 'flex-start',
-                    color: id === selectedValueId ? selectedValueColor : '#343434'
+                    color: id === selectedValueId ? selectedValueColor : this.props.textColor
                 }}
                 >
                     {title}
@@ -60,6 +60,7 @@ class ModalPicker extends Component {
             headerText,
             pickerValues,
             onDismissPicker,
+            backgroundColor,
         } = this.props;
 
         const pickerHeight = (this.state.layout === layouts.vertical) ? '90%' : '50%';
@@ -76,7 +77,7 @@ class ModalPicker extends Component {
                     onPress={onDismissPicker}
                 >
                     <TouchableWithoutFeedback>
-                        <View style={[styles.modalStyle, { height: pickerHeight }]}>
+                        <View style={[styles.modalStyle, { backgroundColor ,height: pickerHeight }]}>
                             <Text style={styles.headerStyle}
                             >
                                 {headerText}
