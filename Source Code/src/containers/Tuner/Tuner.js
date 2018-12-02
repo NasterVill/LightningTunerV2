@@ -85,6 +85,7 @@ class Tuner extends Component {
     }
 
     render() {
+        console.log('TUNER RENDER', this.props);
         const { containerStyle, textStyle, tuningStyle, tunerViewStyle } = generateStyles(this.props.theme);
 
         let { currentTuning, style, locale } = this.props;

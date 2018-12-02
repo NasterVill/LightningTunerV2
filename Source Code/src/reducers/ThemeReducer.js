@@ -4,6 +4,7 @@ import { CHANGE_THEME } from '../actions/theme';
 const INITIAL_STATE = themes.light;
 
 export default (state = INITIAL_STATE, action) => {
+    console.log(state);
     switch (action.type) {
         case CHANGE_THEME:
             console.log(state.theme);

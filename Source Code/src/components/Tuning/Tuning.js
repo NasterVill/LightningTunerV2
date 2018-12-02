@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, Text } from 'react-native';
+import I18n from '../../i18n';
 import  { styles } from './styles';
 
 export default class Tuning extends PureComponent {
@@ -13,7 +14,7 @@ export default class Tuning extends PureComponent {
         return notes.map((note, index) => {
             let textStyleSpecific = {};
 
-            if(note.noteData.name(locale) === closestNote.noteData.name(locale) &&
+            if(note.noteData.nameKey === closestNote.noteData.nameKey &&
                 note.octave.name === closestNote.octave.name) {
                 textStyleSpecific = {
                     fontSize: 26,
@@ -26,7 +27,7 @@ export default class Tuning extends PureComponent {
                     style={[styles.textStyle, textStyleSpecific]}
                     key={index}
                 >
-                    {note.noteData.name(locale)}
+                    {I18n.t(note.noteData.nameKey, { locale })}
                 </Text>
             );
         });

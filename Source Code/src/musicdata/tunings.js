@@ -1,3 +1,4 @@
+import I18n from '../i18n';
 import { notesMap } from './notes';
 import { octaves } from './octaves';
 
@@ -5,7 +6,8 @@ export function tuningToString(tuning, locale) {
     let { name, notes } = tuning;
 
     return `${name} (${notes.map((note, index) => {
-        return index === 0 ? note.noteData.name(locale) : ` ${note.noteData.name(locale)}`;
+        console.log(tuning, note.noteData.nameKey, locale, I18n.t(note.noteData.nameKey, { locale }));
+        return index === 0 ? I18n.t(note.noteData.nameKey, { locale }) : ` ${I18n.t(note.noteData.nameKey, { locale })}`;
     })})`;
 }
 
