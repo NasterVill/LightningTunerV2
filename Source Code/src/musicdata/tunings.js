@@ -1,11 +1,11 @@
 import { notesMap } from './notes';
 import { octaves } from './octaves';
 
-export function tuningToString(tuning) {
+export function tuningToString(tuning, locale) {
     let { name, notes } = tuning;
 
     return `${name} (${notes.map((note, index) => {
-        return index === 0 ? note.noteData.name : ` ${note.noteData.name}`;
+        return index === 0 ? note.noteData.name(locale) : ` ${note.noteData.name(locale)}`;
     })})`;
 }
 

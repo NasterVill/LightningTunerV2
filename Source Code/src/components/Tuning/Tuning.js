@@ -8,12 +8,12 @@ export default class Tuning extends PureComponent {
 	}
 
 	renderNotes() {
-        let { notes, closestNote } = this.props;
+        let { notes, closestNote, locale } = this.props;
 
         return notes.map((note, index) => {
             let textStyleSpecific = {};
 
-            if(note.noteData.name === closestNote.noteData.name &&
+            if(note.noteData.name(locale) === closestNote.noteData.name(locale) &&
                 note.octave.name === closestNote.octave.name) {
                 textStyleSpecific = {
                     fontSize: 26,
@@ -26,7 +26,7 @@ export default class Tuning extends PureComponent {
                     style={[styles.textStyle, textStyleSpecific]}
                     key={index}
                 >
-                    {note.noteData.name}
+                    {note.noteData.name(locale)}
                 </Text>
             );
         });

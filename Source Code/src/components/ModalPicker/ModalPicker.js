@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Text, View, FlatList, TouchableOpacity, TouchableWithoutFeedback, Dimensions } from 'react-native';
+import { Modal, Text, View, FlatList, TouchableOpacity, TouchableWithoutFeedback, Dimensions, Animated } from 'react-native';
 import { CommonButtons } from '../common';
 import { layouts, CHANGE_EVENT } from './constants';
 import { styles } from './styles';
@@ -30,7 +30,8 @@ class ModalPicker extends Component {
                 noDefaultStyles={true}
                 onPress={() => onValueSelected(value)}
             >
-                <Text style={{fontSize: 18,
+                <Text style={{
+                    fontSize: 18,
                     alignSelf: 'flex-start',
                     color: id === selectedValueId ? selectedValueColor : this.props.textColor
                 }}
@@ -64,6 +65,7 @@ class ModalPicker extends Component {
         } = this.props;
 
         const pickerHeight = (this.state.layout === layouts.vertical) ? '90%' : '50%';
+        const pickerMinWidth = (this.state.layout === layouts.vertical) ? '30%' : '70%';
 
         return (
             <Modal
@@ -77,12 +79,13 @@ class ModalPicker extends Component {
                     onPress={onDismissPicker}
                 >
                     <TouchableWithoutFeedback>
-                        <View style={[styles.modalStyle, { backgroundColor ,height: pickerHeight }]}>
+                        <View style={[styles.modalStyle, { backgroundColor ,height: pickerHeight, minWidth: pickerMinWidth, alignItems: 'stretch' }]}>
                             <Text style={styles.headerStyle}
                             >
                                 {headerText}
                             </Text>
                             <FlatList
+                                renderScrollComponent={this.renderScroll}
                                 data={pickerValues}
                                 renderItem={this.renderItem}
                                 keyExtractor={({title}) => title}
@@ -104,6 +107,23 @@ class ModalPicker extends Component {
 
     componentWillUnmount() {
         Dimensions.removeEventListener('change', this.orientationListener);
+    }
+
+    // TODO: make a custom always on scroll component
+    renderScroll = (props) => {
+        return (
+            <Animated.ScrollView
+                {...props}
+                scrollEventThrottle={16}
+                onScroll={
+                    Animated.event([{
+                        nativeEvent: { contentOffset: { y: this.state.scrollY } }
+                    }], {
+                        useNativeDriver: true
+                    })
+                }
+            />
+        );
     }
 }
 

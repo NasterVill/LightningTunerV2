@@ -7,7 +7,7 @@ const generateStyles = (theme) => {
             alignSelf: 'stretch',
             backgroundColor: theme.primary,
         },
-        tuningsSettingsElementStyle: {
+        settingsElementStyle: {
             justifyContent: 'space-between',
             flexDirection: 'row',
             padding: 18,

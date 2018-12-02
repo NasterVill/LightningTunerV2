@@ -1,0 +1,19 @@
+{
+  "general": {
+    "localeName": "Español",
+    "notes": {
+      "C": "Ut",
+      "C_SHARP" : "Ut#",
+      "D": "Re",
+      "D_SHARP": "Re#",
+      "E": "Mi",
+      "F": "Fa",
+      "F_SHARP": "Fa#",
+      "G": "Sol",
+      "G_SHARP": "Sol#",
+      "A": "La",
+      "A_SHARP": "La#",
+      "B": "Si"
+    }
+  }
+}

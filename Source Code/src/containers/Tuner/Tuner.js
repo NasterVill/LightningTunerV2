@@ -10,12 +10,10 @@ import { imagesData } from '../../imagestore';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import generateStyles from './styles';
 import { Animations } from '../../components/common';
-import {bindActionCreators} from "redux";
-import {selectTuning} from "../../actions/tuningactions";
-import {changeTheme} from "../../actions/theme";
 
 const ALLOWED_DIFFERENCE = 5;
 const FREQ_PRECISION = 100;
+const TIME_OUT = 3000;
 const DELAY = 400;
 
 class Tuner extends Component {
@@ -31,12 +29,16 @@ class Tuner extends Component {
         this.state = { frequency: 0 };
     }
 
-    cacheFrequency= 0;
+    timeoutId = null;
 
     onFrequencyDetected = ({ frequency }) =>  {
         if (frequency !== 0) {
-            this.cacheFrequency = frequency;
             this.setState({frequency});
+
+            if (this.timeoutId) {
+                clearTimeout(this.timeoutId);
+            }
+            this.timeoutId = setTimeout(() => this.setState({frequency: 0}), TIME_OUT);
         }
     };
 
@@ -85,7 +87,7 @@ class Tuner extends Component {
     render() {
         const { containerStyle, textStyle, tuningStyle, tunerViewStyle } = generateStyles(this.props.theme);
 
-        let { currentTuning, style } = this.props;
+        let { currentTuning, style, locale } = this.props;
 
         let { frequency } = this.state;
         frequency = Math.round(frequency * FREQ_PRECISION) / FREQ_PRECISION;
@@ -102,6 +104,7 @@ class Tuner extends Component {
                     style={tuningStyle}
                     notes={currentTuning.notes}
                     closestNote={closestNote}
+                    locale={locale}
                 />
                 <MeasuringScale
                     style={tunerViewStyle}
@@ -136,8 +139,8 @@ class Tuner extends Component {
     }
 }
 
-const mapStateToProps = ({ currentTuning, theme }) => {
-    return  { currentTuning, theme };
+const mapStateToProps = ({ currentTuning, theme, locale }) => {
+    return  { currentTuning, theme, locale };
 };
 
 export default connect(mapStateToProps)(Tuner);
