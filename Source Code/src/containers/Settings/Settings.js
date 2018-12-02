@@ -20,7 +20,8 @@ class Settings extends Component {
             pickerVisibility: false,
             isTuningsSetting: false,
             isLocalesSetting: false,
-        }
+        };
+        this._switch = null;
     }
 
     onTuningsPress = () => {
@@ -120,13 +121,23 @@ class Settings extends Component {
                     <Text style={[styles.textStyle]}>Note name convention:</Text>
                     <Text style={[styles.textStyle, {color : '#e8cd20'}]}>{I18n.t("general.localeName", { locale: this.props.locale })}</Text>
                 </TouchableOpacity>
-                <View style={styles.settingsElementStyle}>
+                <TouchableOpacity
+                    onPress={() => {
+                        if (this._switch) {
+                            this._switch.setNativeProps({
+                                value: !this.props.theme.id === themes.dark.id
+                            });
+                            this.props.changeTheme();
+                        }
+                    }}
+                    style={styles.settingsElementStyle}>
                     <Text style={styles.textStyle}>Dark theme</Text>
                     <Switch
+                        ref={ref => this._switch = ref}
                         value={this.props.theme.id === themes.dark.id}
                         onValueChange={this.props.changeTheme}
                     />
-                </View>
+                </TouchableOpacity>
             </View>
         );
     }
