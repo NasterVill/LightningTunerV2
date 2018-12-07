@@ -1,4 +1,4 @@
-import locales from '../i18n/locales/names';
+import locales from '../i18n/locales/index';
 import { SET_LOCALE } from '../actions/locales';
 
 const INITIAL_STATE = locales.en;

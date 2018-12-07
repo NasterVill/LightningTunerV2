@@ -8,7 +8,7 @@ import { setLocale } from '../../actions/locales';
 import { changeTheme } from '../../actions/theme';
 import { bindActionCreators } from 'redux'
 import generateStyles from './styles';
-import locales from '../../i18n/locales/names';
+import locales from '../../i18n/locales/index';
 import I18n from '../../i18n';
 import { themes } from '../../context/themeContext';
 
