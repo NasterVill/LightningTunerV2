@@ -13,8 +13,7 @@ import { Animations } from '../../components/common';
 
 const ALLOWED_DIFFERENCE = 5;
 const FREQ_PRECISION = 100;
-const TIME_OUT = 3000;
-const DELAY = 400;
+const TIME_OUT = 8000;
 
 class Tuner extends Component {
     constructor(props) {
@@ -49,15 +48,15 @@ class Tuner extends Component {
         );
     }
 
-    log2(value) {
+    static log2(value) {
         return Math.log(value) / Math.log(2);
     }
 
-    computeCents(baseFrequency, currentFrequency) {
-        return currentFrequency > 0 ? (1200 * this.log2(currentFrequency / baseFrequency)) : 0;
+    static computeCents(baseFrequency, currentFrequency) {
+        return currentFrequency > 0 ? (1200 * Tuner.log2(currentFrequency / baseFrequency)) : 0;
     }
 
-    computePos(cents) {
+    static computePos(cents) {
         let pos = cents / 2 + (UNIT_INTERVALS_AMOUNT / 2);
 
         if (pos > 100) pos = 100;
@@ -95,8 +94,8 @@ class Tuner extends Component {
 
         const closestNote = currentTuning.notes[this.getClosestNoteIndex()];
         const closestFrequency = Math.round(getFrequency(closestNote) * FREQ_PRECISION) / FREQ_PRECISION;
-        const cents = this.computeCents(closestFrequency, frequency);
-        const pos = this.computePos(cents);
+        const cents = Tuner.computeCents(closestFrequency, frequency);
+        const pos = Tuner.computePos(cents);
         const success = (cents > -ALLOWED_DIFFERENCE && cents < ALLOWED_DIFFERENCE && frequency !== 0);
 
         return (

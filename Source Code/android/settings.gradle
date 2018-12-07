@@ -1,6 +1,8 @@
 rootProject.name = 'LightningTuner'
 include ':react-native-i18n'
 project(':react-native-i18n').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-i18n/android')
+include ':react-native-i18n'
+project(':react-native-i18n').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-i18n/android')
 include ':react-native-view-overflow'
 project(':react-native-view-overflow').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-view-overflow/android')
 include ':react-native-vector-icons'

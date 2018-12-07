@@ -58,6 +58,8 @@
 		B83D88544D454550AE510A5F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4AA4FD1FF046C8BA580A40 /* SimpleLineIcons.ttf */; };
 		F875EB9A55984C7BA9C667ED /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CBD0BDCD671041A989D29487 /* Zocial.ttf */; };
 		C43604EA3C9F42739F1CF851 /* libRNViewOverflow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5022654D5AF1455890A5BD86 /* libRNViewOverflow.a */; };
+		EB8C0629C6D64BBB974B0B32 /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F66577FC6CDD4A89AE81A9DF /* libRNI18n.a */; };
+		5247E522F37C4682A548EB3B /* libRNI18n-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29ACC158D0524C71911B5EBB /* libRNI18n-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -389,6 +391,9 @@
 		CBD0BDCD671041A989D29487 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		A6336D024E6D4497A8A2009F /* RNViewOverflow.xcodeproj */ = {isa = PBXFileReference; name = "RNViewOverflow.xcodeproj"; path = "../node_modules/react-native-view-overflow/ios/RNViewOverflow.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		5022654D5AF1455890A5BD86 /* libRNViewOverflow.a */ = {isa = PBXFileReference; name = "libRNViewOverflow.a"; path = "libRNViewOverflow.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		37D3ED74228E4AF39C5359E8 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; name = "RNI18n.xcodeproj"; path = "../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		F66577FC6CDD4A89AE81A9DF /* libRNI18n.a */ = {isa = PBXFileReference; name = "libRNI18n.a"; path = "libRNI18n.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		29ACC158D0524C71911B5EBB /* libRNI18n-tvOS.a */ = {isa = PBXFileReference; name = "libRNI18n-tvOS.a"; path = "libRNI18n-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +428,7 @@
 				059A8A42BD7745B296DE5188 /* ReactNativeNavigationTests.xctest in Resources */,
 				04E8458BA827467E9B05A432 /* libRNVectorIcons.a in Frameworks */,
 				C43604EA3C9F42739F1CF851 /* libRNViewOverflow.a in Frameworks */,
+				EB8C0629C6D64BBB974B0B32 /* libRNI18n.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +446,7 @@
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
 				7BE1B2B33EEC4440BEBDB20D /* libRNSVG-tvOS.a in Frameworks */,
 				19C8B08EC2EC415D8C5D9FC8 /* libRNI18n-tvOS.a in Frameworks */,
+				5247E522F37C4682A548EB3B /* libRNI18n-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +623,7 @@
 				DFEB735B63464F6DAD939B91 /* ReactNativeNavigation.xcodeproj */,
 				34D5C389404548369DAA4AAB /* RNVectorIcons.xcodeproj */,
 				A6336D024E6D4497A8A2009F /* RNViewOverflow.xcodeproj */,
+				37D3ED74228E4AF39C5359E8 /* RNI18n.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1279,6 +1287,8 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightningTuner.app/LightningTuner";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1287,6 +1297,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-view-overflow\ios",
+					"$(SRCROOT)\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Debug;
@@ -1307,6 +1318,8 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightningTuner.app/LightningTuner";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1315,6 +1328,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-view-overflow\ios",
+					"$(SRCROOT)\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Release;
@@ -1341,6 +1355,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-view-overflow\ios",
+					"$(SRCROOT)\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Debug;
@@ -1366,6 +1381,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-view-overflow\ios",
+					"$(SRCROOT)\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Release;
@@ -1395,6 +1411,8 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1403,6 +1421,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-view-overflow\ios",
+					"$(SRCROOT)\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Debug;
@@ -1432,6 +1451,8 @@
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1440,6 +1461,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-view-overflow\ios",
+					"$(SRCROOT)\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Release;
@@ -1468,6 +1490,8 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1476,6 +1500,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-view-overflow\ios",
+					"$(SRCROOT)\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Debug;
@@ -1504,6 +1529,8 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1512,6 +1539,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-navigation\lib\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
 					"$(SRCROOT)\..\node_modules\react-native-view-overflow\ios",
+					"$(SRCROOT)\..\node_modules\react-native-i18n\ios",
 				);
 			};
 			name = Release;
