@@ -16,9 +16,9 @@ Lightning Tuner - это мобильное приложение-тюнер, п�
 
 ### Diagrams: ([Ru](https://github.com/NasterVill/LightningTunerV2/tree/master/Documents/Diagrams))
 
-### Test Plan ([Ru](https://github.com/NasterVill/LightningTunerV2/tree/master/Documents/Testing/TestPlan.md))
+### Test Plan: ([Ru](https://github.com/NasterVill/LightningTunerV2/tree/master/Documents/Testing/TestPlan.md))
 
-### Result of the testing([Ru](https://github.com/NasterVill/LightningTunerV2/tree/master/Documents/Testing/TestResults.md))
+### Result of the testing: ([Ru](https://github.com/NasterVill/LightningTunerV2/tree/master/Documents/Testing/TestResults.md))
 
 ***
 
