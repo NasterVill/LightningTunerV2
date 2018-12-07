@@ -1,4 +1,4 @@
-﻿|# Lightning Tuner v2
+# Lightning Tuner v2
 ##### Current version: 1.0.0
 
 
